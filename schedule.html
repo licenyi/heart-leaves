@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
+<html lang="zh"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>学以为家 · 行程表 2025年4月3—11日</title>
@@ -115,12 +113,12 @@ select.type-sel{font-size:10px;border:1px solid #e0ddd8;border-radius:6px;backgr
     <div class="toolbar-sub">伦敦为大本营 · 9天</div>
   </div>
   <div class="toolbar-right">
-    <span class="save-status" id="save-status"></span>
+    <span class="save-status" id="save-status">上次保存：20:52</span>
     <button class="btn" onclick="addRow()">＋ 新增行</button>
     <button class="btn" onclick="fetchWeather()">↻ 自动获取天气</button>
     <button class="btn" onclick="openSmartPaste()" style="background:#1a1a1a;color:#fff;border-color:#1a1a1a">✦ 智能粘贴天气</button>
-    <button class="btn" id="edit-btn" onclick="toggleEdit()">✏️ 编辑</button>
-    <button class="btn btn-save" id="save-btn" onclick="saveData()" style="display:none">💾 保存</button>
+    <button class="btn" id="edit-btn" onclick="toggleEdit()" style="">✏️ 编辑</button>
+    <button class="btn btn-save" id="save-btn" onclick="saveData()" style="display: none;">💾 保存</button>
     <button class="btn" onclick="exportHTML()">⬇ 导出 HTML</button>
     <button class="btn" onclick="resetData()" style="color:#aaa;border-color:#eee">↺ 重置</button>
   </div>
@@ -132,7 +130,274 @@ select.type-sel{font-size:10px;border:1px solid #e0ddd8;border-radius:6px;backgr
 <thead><tr>
   <th>日期</th><th>天气</th><th>时间</th><th>活动内容</th><th>类型</th><th>负责岗位</th><th>备注</th>
 </tr></thead>
-<tbody id="tbody"></tbody>
+<tbody id="tbody"><tr data-di="0" data-ri="0">
+      <td class="day-cell d0" rowspan="2">
+      <div class="day-num">4/3</div>
+      <div class="day-dow">周四</div>
+      <div class="day-label">热身日</div>
+    </td><td class="wx-cell" id="wx-0" rowspan="2">
+      <div class="wx-icon">⛅</div>
+      <div class="wx-temp">14°C / 7°C</div>
+      <div class="wx-desc">多云</div>
+    </td>
+      <td class="time-cell">上午</td>
+      <td class="act-cell" contenteditable="false" data-ph="活动内容">Kew Gardens 皇家植物园</td>
+      <td class="type-cell">
+        <select class="type-sel" onchange="syncBadge(this)" disabled=""><option value="t-outing" selected="">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+        <div class="badge t-outing">观光</div>
+      </td>
+      <td class="role-cell">
+    <div class="role-line"><span class="role-key">主持：</span><span class="role-val host-val" contenteditable="false">Wendy</span></div>
+    <div class="role-line"><span class="role-key">助理：</span><span class="role-val assist-val" contenteditable="false">Levi</span></div>
+  </td>
+      <td class="note-cell" contenteditable="false" data-ph="备注">参与：ALL<br>午餐：Sagar&nbsp;<br></td>
+    </tr><tr data-di="0" data-ri="1">
+      
+      <td class="time-cell">下午</td>
+      <td class="act-cell" contenteditable="false" data-ph="活动内容">公园行禅 / 单独互动</td>
+      <td class="type-cell">
+        <select class="type-sel" onchange="syncBadge(this)" disabled=""><option value="t-outing" selected="">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+        <div class="badge t-outing">观光</div>
+      </td>
+      <td class="role-cell">
+    <div class="role-line"><span class="role-key">主持：</span><span class="role-val host-val" contenteditable="false"></span></div>
+    <div class="role-line"><span class="role-key">助理：</span><span class="role-val assist-val" contenteditable="false"></span></div>
+  </td>
+      <td class="note-cell" contenteditable="false" data-ph="备注">晚餐：303 <br>备餐：Eloise</td>
+    </tr><tr data-di="1" data-ri="2">
+      <td class="day-cell d1" rowspan="2">
+      <div class="day-num">4/4</div>
+      <div class="day-dow">周五</div>
+      <div class="day-label">我从哪里来</div>
+    </td><td class="wx-cell" id="wx-1" rowspan="2">
+      <div class="wx-icon">🌧</div>
+      <div class="wx-temp">13°C / 6°C</div>
+      <div class="wx-desc">小雨</div>
+    </td>
+      <td class="time-cell">上午</td>
+      <td class="act-cell" contenteditable="false" data-ph="活动内容">「我从哪里来」破冰研讨</td>
+      <td class="type-cell">
+        <select class="type-sel" onchange="syncBadge(this)" disabled=""><option value="t-outing">观光</option><option value="t-salon" selected="">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+        <div class="badge t-salon">主题研讨</div>
+      </td>
+      <td class="role-cell">
+    <div class="role-line"><span class="role-key">主持：</span><span class="role-val host-val" contenteditable="false">Wendy</span></div>
+    <div class="role-line"><span class="role-key">助理：</span><span class="role-val assist-val" contenteditable="false">Michael</span></div>
+  </td>
+      <td class="note-cell" contenteditable="false" data-ph="备注">参与：ALL<br>午餐：303 <br>备餐：Eloise, Levi<br></td>
+    </tr><tr data-di="1" data-ri="3">
+      
+      <td class="time-cell">下午</td>
+      <td class="act-cell" contenteditable="false" data-ph="活动内容">羽毛球</td>
+      <td class="type-cell">
+        <select class="type-sel" onchange="syncBadge(this)" disabled=""><option value="t-outing" selected="">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+        <div class="badge t-outing">观光</div>
+      </td>
+      <td class="role-cell">
+    <div class="role-line"><span class="role-key">主持：</span><span class="role-val host-val" contenteditable="false">Michael</span></div>
+    <div class="role-line"><span class="role-key">助理：</span><span class="role-val assist-val" contenteditable="false"></span></div>
+  </td>
+      <td class="note-cell" contenteditable="false" data-ph="备注">参与：Angel, Kelly <br>晚餐：Mildreds Victoria</td>
+    </tr><tr data-di="2" data-ri="4">
+      <td class="day-cell d2" rowspan="2">
+      <div class="day-num">4/5</div>
+      <div class="day-dow">周六</div>
+      <div class="day-label">我是谁</div>
+    </td><td class="wx-cell" id="wx-2" rowspan="2">
+      <div class="wx-icon">🌤</div>
+      <div class="wx-temp">13°C / 6°C</div>
+      <div class="wx-desc">多云转晴</div>
+    </td>
+      <td class="time-cell">上午</td>
+      <td class="act-cell" contenteditable="false" data-ph="活动内容">「我是谁」主题研讨</td>
+      <td class="type-cell">
+        <select class="type-sel" onchange="syncBadge(this)" disabled=""><option value="t-outing">观光</option><option value="t-salon" selected="">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+        <div class="badge t-salon">主题研讨</div>
+      </td>
+      <td class="role-cell">
+    <div class="role-line"><span class="role-key">主持：</span><span class="role-val host-val" contenteditable="false">Wendy</span></div>
+    <div class="role-line"><span class="role-key">助理：</span><span class="role-val assist-val" contenteditable="false">Levi</span></div>
+  </td>
+      <td class="note-cell" contenteditable="false" data-ph="备注">参与：Kelly, Angel, Michael<br>午餐：303 <br>备餐：Eloise, 唐文英姐<br></td>
+    </tr><tr data-di="2" data-ri="5">
+      
+      <td class="time-cell">下午</td>
+      <td class="act-cell" contenteditable="false" data-ph="活动内容">咖啡沙龙</td>
+      <td class="type-cell">
+        <select class="type-sel" onchange="syncBadge(this)" disabled=""><option value="t-outing">观光</option><option value="t-salon">主题研讨</option><option value="t-practice" selected="">实修沙龙</option><option value="t-visit">高校参访</option></select>
+        <div class="badge t-practice">实修沙龙</div>
+      </td>
+      <td class="role-cell">
+    <div class="role-line"><span class="role-key">主持：</span><span class="role-val host-val" contenteditable="false">Michael</span></div>
+    <div class="role-line"><span class="role-key">助理：</span><span class="role-val assist-val" contenteditable="false">Kelly</span></div>
+  </td>
+      <td class="note-cell" contenteditable="false" data-ph="备注">参与: Wendy, Eloise <br>晚餐：Tendril</td>
+    </tr><tr data-di="3" data-ri="6">
+      <td class="day-cell d3" rowspan="2">
+      <div class="day-num">4/6</div>
+      <div class="day-dow">周日</div>
+      <div class="day-label">文明生活</div>
+    </td><td class="wx-cell" id="wx-3" rowspan="2">
+      <div class="wx-icon">⛅</div>
+      <div class="wx-temp">13°C / 6°C</div>
+      <div class="wx-desc">局部多云</div>
+    </td>
+      <td class="time-cell">上午</td>
+      <td class="act-cell" contenteditable="false" data-ph="活动内容">厨艺沙龙</td>
+      <td class="type-cell">
+        <select class="type-sel" onchange="syncBadge(this)" disabled=""><option value="t-outing">观光</option><option value="t-salon">主题研讨</option><option value="t-practice" selected="">实修沙龙</option><option value="t-visit">高校参访</option></select>
+        <div class="badge t-practice">实修沙龙</div>
+      </td>
+      <td class="role-cell">
+    <div class="role-line"><span class="role-key">主持：</span><span class="role-val host-val" contenteditable="false">Eloise</span></div>
+    <div class="role-line"><span class="role-key">助理：</span><span class="role-val assist-val" contenteditable="false">Kelly, Levi</span></div>
+  </td>
+      <td class="note-cell" contenteditable="false" data-ph="备注">参与：Wendy, Angel<br>午餐：303&nbsp;<br></td>
+    </tr><tr data-di="3" data-ri="7">
+      
+      <td class="time-cell">下午</td>
+      <td class="act-cell" contenteditable="false" data-ph="活动内容">大英博物馆</td>
+      <td class="type-cell">
+        <select class="type-sel" onchange="syncBadge(this)" disabled=""><option value="t-outing" selected="">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+        <div class="badge t-outing">观光</div>
+      </td>
+      <td class="role-cell">
+    <div class="role-line"><span class="role-key">主持：</span><span class="role-val host-val" contenteditable="false">Wendy</span></div>
+    <div class="role-line"><span class="role-key">助理：</span><span class="role-val assist-val" contenteditable="false">Michael</span></div>
+  </td>
+      <td class="note-cell" contenteditable="false" data-ph="备注">晚餐：Tofu Vegan <br>参与：Levi</td>
+    </tr><tr data-di="4" data-ri="8">
+      <td class="day-cell d4" rowspan="1">
+      <div class="day-num">4/7</div>
+      <div class="day-dow">周一</div>
+      <div class="day-label">高校参访</div>
+    </td><td class="wx-cell" id="wx-4" rowspan="1">
+      <div class="wx-icon">🌤</div>
+      <div class="wx-temp">14°C / 6°C</div>
+      <div class="wx-desc">晴转多云</div>
+    </td>
+      <td class="time-cell">全天</td>
+      <td class="act-cell" contenteditable="false" data-ph="活动内容">牛津一日游</td>
+      <td class="type-cell">
+        <select class="type-sel" onchange="syncBadge(this)" disabled=""><option value="t-outing">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit" selected="">高校参访</option></select>
+        <div class="badge t-visit">高校参访</div>
+      </td>
+      <td class="role-cell">
+    <div class="role-line"><span class="role-key">主持：</span><span class="role-val host-val" contenteditable="false">Angel</span></div>
+    <div class="role-line"><span class="role-key">助理：</span><span class="role-val assist-val" contenteditable="false">Eloise, Michael</span></div>
+  </td>
+      <td class="note-cell" contenteditable="false" data-ph="备注">晚餐：303 <br>备餐：Kelly, Wendy<br></td>
+    </tr><tr data-di="5" data-ri="9">
+      <td class="day-cell d5" rowspan="2">
+      <div class="day-num">4/8</div>
+      <div class="day-dow">周二</div>
+      <div class="day-label">我想去哪里</div>
+    </td><td class="wx-cell" id="wx-5" rowspan="2">
+      <div class="wx-icon">⛅</div>
+      <div class="wx-temp">14°C / 6°C</div>
+      <div class="wx-desc">多云</div>
+    </td>
+      <td class="time-cell">上午</td>
+      <td class="act-cell" contenteditable="false" data-ph="活动内容">「我想去哪里」主题研讨</td>
+      <td class="type-cell">
+        <select class="type-sel" onchange="syncBadge(this)" disabled=""><option value="t-outing">观光</option><option value="t-salon" selected="">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+        <div class="badge t-salon">主题研讨</div>
+      </td>
+      <td class="role-cell">
+    <div class="role-line"><span class="role-key">主持：</span><span class="role-val host-val" contenteditable="false">Wendy</span></div>
+    <div class="role-line"><span class="role-key">助理：</span><span class="role-val assist-val" contenteditable="false">Michael</span></div>
+  </td>
+      <td class="note-cell" contenteditable="false" data-ph="备注">参与：Angel, Kelly, Levi<br>午餐：303 <br>备餐：Eloise, 唐文英<br></td>
+    </tr><tr data-di="5" data-ri="10">
+      
+      <td class="time-cell">下午</td>
+      <td class="act-cell" contenteditable="false" data-ph="活动内容">烘焙沙龙</td>
+      <td class="type-cell">
+        <select class="type-sel" onchange="syncBadge(this)" disabled=""><option value="t-outing">观光</option><option value="t-salon">主题研讨</option><option value="t-practice" selected="">实修沙龙</option><option value="t-visit">高校参访</option></select>
+        <div class="badge t-practice">实修沙龙</div>
+      </td>
+      <td class="role-cell">
+    <div class="role-line"><span class="role-key">主持：</span><span class="role-val host-val" contenteditable="false">Kelly</span></div>
+    <div class="role-line"><span class="role-key">助理：</span><span class="role-val assist-val" contenteditable="false">Eloise, Wendy</span></div>
+  </td>
+      <td class="note-cell" contenteditable="false" data-ph="备注">参与：Levi&nbsp;<br>晚餐：Mali Thai</td>
+    </tr><tr data-di="6" data-ri="11">
+      <td class="day-cell d6" rowspan="1">
+      <div class="day-num">4/9</div>
+      <div class="day-dow">周三</div>
+      <div class="day-label">高校参访</div>
+    </td><td class="wx-cell" id="wx-6" rowspan="1">
+      <div class="wx-icon">🌤</div>
+      <div class="wx-temp">14°C / 5°C</div>
+      <div class="wx-desc">多云转晴</div>
+    </td>
+      <td class="time-cell">全天</td>
+      <td class="act-cell" contenteditable="false" data-ph="活动内容">剑桥一日游</td>
+      <td class="type-cell">
+        <select class="type-sel" onchange="syncBadge(this)" disabled=""><option value="t-outing">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit" selected="">高校参访</option></select>
+        <div class="badge t-visit">高校参访</div>
+      </td>
+      <td class="role-cell">
+    <div class="role-line"><span class="role-key">主持：</span><span class="role-val host-val" contenteditable="false">Eloise</span></div>
+    <div class="role-line"><span class="role-key">助理：</span><span class="role-val assist-val" contenteditable="false">Angel, Michael</span></div>
+  </td>
+      <td class="note-cell" contenteditable="false" data-ph="备注">晚餐：303 <br>备餐：Kelly, Wendy</td>
+    </tr><tr data-di="7" data-ri="12">
+      <td class="day-cell d7" rowspan="2">
+      <div class="day-num">4/10</div>
+      <div class="day-dow">周四</div>
+      <div class="day-label">总结日</div>
+    </td><td class="wx-cell" id="wx-7" rowspan="2">
+      <div class="wx-icon">☁</div>
+      <div class="wx-temp">13°C / 5°C</div>
+      <div class="wx-desc">阴</div>
+    </td>
+      <td class="time-cell">上午</td>
+      <td class="act-cell" contenteditable="false" data-ph="活动内容">总结研讨：三个问题的贯通与收束</td>
+      <td class="type-cell">
+        <select class="type-sel" onchange="syncBadge(this)" disabled=""><option value="t-outing">观光</option><option value="t-salon" selected="">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+        <div class="badge t-salon">主题研讨</div>
+      </td>
+      <td class="role-cell">
+    <div class="role-line"><span class="role-key">主持：</span><span class="role-val host-val" contenteditable="false">Wendy</span></div>
+    <div class="role-line"><span class="role-key">助理：</span><span class="role-val assist-val" contenteditable="false">Michael</span></div>
+  </td>
+      <td class="note-cell" contenteditable="false" data-ph="备注">参与：全员<br>午餐：303 <br>备餐：Eloise, Angel&nbsp;<br></td>
+    </tr><tr data-di="7" data-ri="13">
+      
+      <td class="time-cell">下午</td>
+      <td class="act-cell" contenteditable="false" data-ph="活动内容">National Gallery 国家美术馆</td>
+      <td class="type-cell">
+        <select class="type-sel" onchange="syncBadge(this)" disabled=""><option value="t-outing" selected="">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+        <div class="badge t-outing">观光</div>
+      </td>
+      <td class="role-cell">
+    <div class="role-line"><span class="role-key">主持：</span><span class="role-val host-val" contenteditable="false">Eloise</span></div>
+    <div class="role-line"><span class="role-key">助理：</span><span class="role-val assist-val" contenteditable="false">Wendy</span></div>
+  </td>
+      <td class="note-cell" contenteditable="false" data-ph="备注">参与：Angel, Kelly<br>晚餐：Omnom&nbsp;<br></td>
+    </tr><tr data-di="8" data-ri="14">
+      <td class="day-cell d8" rowspan="1">
+      <div class="day-num">4/11</div>
+      <div class="day-dow">周五</div>
+      <div class="day-label">伦敦半日行</div>
+    </td><td class="wx-cell" id="wx-8" rowspan="1">
+      <div class="wx-icon">🌤</div>
+      <div class="wx-temp">14°C / 6°C</div>
+      <div class="wx-desc">多云转晴</div>
+    </td>
+      <td class="time-cell">全天</td>
+      <td class="act-cell" contenteditable="false" data-ph="活动内容">泰晤士河 Greenwich 一日游</td>
+      <td class="type-cell">
+        <select class="type-sel" onchange="syncBadge(this)" disabled=""><option value="t-outing" selected="">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+        <div class="badge t-outing">观光</div>
+      </td>
+      <td class="role-cell">
+    <div class="role-line"><span class="role-key">主持：</span><span class="role-val host-val" contenteditable="false">Angel</span></div>
+    <div class="role-line"><span class="role-key">助理：</span><span class="role-val assist-val" contenteditable="false">Michael</span></div>
+  </td>
+      <td class="note-cell" contenteditable="false" data-ph="备注">参与：ALL<br>早午餐：303 <br>备餐：Eloise, Wendy <br>晚餐：Mallow / Plants of Roselyn&nbsp;<br></td>
+    </tr></tbody>
 </table>
 <button class="add-row-btn" onclick="addRow()">＋ 新增一行</button>
 </div>
@@ -160,7 +425,7 @@ select.type-sel{font-size:10px;border:1px solid #e0ddd8;border-radius:6px;backgr
       <span class="wx-conf low">7天+仅参考</span>
     </div>
   </div>
-  <div id="wx-status" style="font-size:10px;color:#aaa;width:100%;margin-top:4px">尚未更新天气</div>
+  <div id="wx-status" style="font-size:10px;color:#aaa;width:100%;margin-top:4px">自动获取失败（网络限制），请点击「更新天气」手动填写</div>
 </div>
 
 <!-- Smart paste modal -->
@@ -174,10 +439,13 @@ select.type-sel{font-size:10px;border:1px solid #e0ddd8;border-radius:6px;backgr
       <a href="https://weather.com/weather/tenday/l/London" target="_blank" style="color:#1a73e8">Weather.com</a>、
       中文天气等各种格式。
     </p>
-    <textarea id="wx-paste-input"
-      placeholder="在此粘贴天气预报文字…&#10;&#10;支持任意格式，例如：&#10;Thu 3 Apr  Partly cloudy  14°C / 7°C&#10;4月4日 周五 小雨 13° 6°&#10;Friday April 5  Sunny intervals  High:13 Low:6&#10;…"
-      style="width:100%;height:150px;font-size:12px;border:1px solid #ddd;border-radius:8px;padding:10px;resize:vertical;font-family:inherit;color:#1a1a1a;background:#fafaf8;line-height:1.6"
-    ></textarea>
+    <textarea id="wx-paste-input" placeholder="在此粘贴天气预报文字…
+
+支持任意格式，例如：
+Thu 3 Apr  Partly cloudy  14°C / 7°C
+4月4日 周五 小雨 13° 6°
+Friday April 5  Sunny intervals  High:13 Low:6
+…" style="width:100%;height:150px;font-size:12px;border:1px solid #ddd;border-radius:8px;padding:10px;resize:vertical;font-family:inherit;color:#1a1a1a;background:#fafaf8;line-height:1.6"></textarea>
     <div id="wx-parse-status" style="font-size:11px;margin:8px 0 4px;min-height:16px;color:#888"></div>
     <div id="wx-preview" style="display:none;margin-bottom:12px">
       <div style="font-size:11px;font-weight:600;color:#1a1a1a;margin-bottom:6px">解析结果（可直接修改）</div>
@@ -713,5 +981,6 @@ buildTable();
 fetchWeather();
 checkSaveStatus();
 </script>
-</body>
-</html>
+
+
+</body></html>
