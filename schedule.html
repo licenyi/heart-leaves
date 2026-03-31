@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学以为家 · 行程表 2025年4月3—11日</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:#f8f7f4;color:#1a1a1a;padding:20px 16px 48px}
+.wrap{max-width:960px;margin:0 auto}
+
+.toolbar{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.toolbar-left{}
+.toolbar-title{font-size:16px;font-weight:600;color:#1a1a1a}
+.toolbar-sub{font-size:11px;color:#888;margin-top:3px}
+.toolbar-right{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.btn{font-size:11px;padding:5px 14px;border-radius:20px;border:1px solid #ddd;background:#fff;color:#555;cursor:pointer;transition:background .15s}
+.btn:hover{background:#f0f0f0}
+.btn-save{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
+.btn-save:hover{background:#333}
+.btn-saved{background:#0F6E56;color:#fff;border-color:#0F6E56}
+.save-status{font-size:11px;color:#888;align-self:center}
+
+.tbl-wrap{overflow-x:auto;border:1px solid #e8e6e0;border-radius:12px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+table{width:100%;border-collapse:collapse;min-width:700px}
+col.c-day{width:80px}col.c-wx{width:84px}col.c-time{width:52px}
+col.c-act{width:auto}col.c-type{width:76px}col.c-role{width:160px}col.c-note{width:150px}
+thead th{font-size:11px;font-weight:600;color:#888;padding:9px 10px;text-align:left;border-bottom:1px solid #e8e6e0;background:#f8f7f4}
+tbody tr{border-bottom:1px solid #f0ede8}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:#fafaf8}
+td{font-size:12px;color:#1a1a1a;padding:7px 10px;vertical-align:top;line-height:1.5}
+
+.day-cell{vertical-align:top;text-align:center;padding:10px 4px;border-right:1px solid #f0ede8}
+.day-num{font-size:15px;font-weight:600}
+.day-dow{font-size:10px;margin-top:1px;color:#888}
+.day-label{font-size:10px;font-weight:600;margin-top:5px;padding:2px 6px;border-radius:10px;display:inline-block;line-height:1.4}
+.wx-cell{text-align:center;vertical-align:top;padding:8px 4px;border-right:1px solid #f0ede8}
+.wx-icon{font-size:16px}
+.wx-temp{font-size:10px;color:#888;margin-top:2px}
+.wx-desc{font-size:10px;color:#aaa;margin-top:1px}
+.wx-conf{font-size:9px;margin-top:3px;padding:1px 5px;border-radius:6px;display:inline-block;font-weight:500}
+.wx-conf.high{background:#EAF3DE;color:#27500A}
+.wx-conf.mid {background:#FAEEDA;color:#854F0B}
+.wx-conf.low {background:#FCEBEB;color:#A32D2D}
+.wx-panel{background:#f8f7f4;border:1px solid #e8e6e0;border-radius:10px;padding:10px 14px;margin-top:10px;display:flex;flex-wrap:wrap;gap:6px;align-items:flex-start;justify-content:space-between}
+.wx-panel-left{font-size:11px;color:#666;line-height:1.7}
+.wx-panel-left strong{color:#1a1a1a;font-weight:600}
+.wx-sources{display:flex;gap:6px;font-size:10px;color:#aaa;align-items:center;flex-wrap:wrap}
+.wx-src-badge{background:#fff;border:1px solid #e0ddd8;border-radius:6px;padding:1px 7px;color:#666}
+
+.badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:10px;white-space:nowrap}
+.t-outing  {background:#EAF3DE;color:#27500A}
+.t-salon   {background:#FBEAF0;color:#72243E}
+.t-practice{background:#FAEEDA;color:#633806}
+.t-visit   {background:#E6F1FB;color:#0C447C}
+
+.d0 .day-num,.d0 .day-dow{color:#085041} .d0 .day-label{background:#E1F5EE;color:#085041}
+.d1 .day-num,.d1 .day-dow{color:#3C3489} .d1 .day-label{background:#EEEDFE;color:#3C3489}
+.d2 .day-num,.d2 .day-dow{color:#72243E} .d2 .day-label{background:#FBEAF0;color:#72243E}
+.d3 .day-num,.d3 .day-dow{color:#633806} .d3 .day-label{background:#FAEEDA;color:#633806}
+.d4 .day-num,.d4 .day-dow{color:#0C447C} .d4 .day-label{background:#E6F1FB;color:#0C447C}
+.d5 .day-num,.d5 .day-dow{color:#72243E} .d5 .day-label{background:#FBEAF0;color:#72243E}
+.d6 .day-num,.d6 .day-dow{color:#0C447C} .d6 .day-label{background:#E6F1FB;color:#0C447C}
+.d7 .day-num,.d7 .day-dow{color:#3C3489} .d7 .day-label{background:#EEEDFE;color:#3C3489}
+.d8 .day-num,.d8 .day-dow{color:#085041} .d8 .day-label{background:#E1F5EE;color:#085041}
+
+.role-cell{font-size:11px;line-height:1.9;vertical-align:top}
+.role-line{display:flex;align-items:baseline;gap:4px}
+.role-key{color:#aaa;white-space:nowrap;flex-shrink:0;font-size:10px}
+.role-val{color:#1a1a1a;border-bottom:1px solid #e8e6e0;min-width:52px;outline:none;padding:0 2px;font-size:11px}
+.role-val:focus{background:#e8f0fe;border-radius:3px;border-color:#4285f4}
+.role-val:empty:before{content:"＿＿";color:#ccc}
+
+td[contenteditable="true"]{outline:none;cursor:text}
+td[contenteditable="true"]:focus{background:#fefdf8;box-shadow:inset 0 0 0 2px #e8d84a;border-radius:3px}
+td[contenteditable="true"]:empty:before{content:attr(data-ph);color:#bbb;font-style:italic;pointer-events:none}
+
+.type-cell{vertical-align:top;padding:6px 8px}
+select.type-sel{font-size:10px;border:1px solid #e0ddd8;border-radius:6px;background:#fff;color:#1a1a1a;padding:2px 3px;cursor:pointer;width:100%;margin-bottom:4px}
+.time-cell{white-space:nowrap;color:#888;font-size:11px;font-weight:500;vertical-align:top;padding-top:9px}
+
+.add-row-btn{display:block;width:100%;padding:9px;font-size:11px;color:#aaa;text-align:center;cursor:pointer;border:none;background:none;border-top:1px solid #f0ede8;transition:background .15s}
+.add-row-btn:hover{background:#fafaf8;color:#888}
+
+.footer{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:6px;margin-top:10px}
+.legend{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.legend-label{font-size:10px;color:#aaa}
+.wx-status{font-size:10px;color:#aaa;text-align:right}
+
+.edit-mode-banner{display:none;background:#1a1a1a;color:#fff;font-size:11px;padding:6px 14px;border-radius:8px;margin-bottom:10px;align-items:center;gap:8px}
+.edit-mode-banner.visible{display:flex}
+
+/* modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:14px;padding:24px;width:340px;max-width:90vw}
+.modal h3{font-size:15px;font-weight:600;margin-bottom:6px}
+.modal p{font-size:12px;color:#666;margin-bottom:16px;line-height:1.6}
+.modal-btns{display:flex;gap:8px;justify-content:flex-end}
+.modal-btns button{font-size:12px;padding:6px 16px;border-radius:8px;border:1px solid #ddd;background:#fff;cursor:pointer}
+.modal-btns .btn-primary{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="edit-mode-banner" id="edit-banner">
+  <span>✏️ 编辑模式已开启 — 点击任意单元格开始编辑</span>
+</div>
+
+<div class="toolbar">
+  <div class="toolbar-left">
+    <div class="toolbar-title">「学以为家」行程表 · 2025年4月3—11日</div>
+    <div class="toolbar-sub">伦敦为大本营 · 9天</div>
+  </div>
+  <div class="toolbar-right">
+    <span class="save-status" id="save-status"></span>
+    <button class="btn" onclick="addRow()">＋ 新增行</button>
+    <button class="btn" onclick="fetchWeather()">↻ 自动获取天气</button>
+    <button class="btn" onclick="openSmartPaste()" style="background:#1a1a1a;color:#fff;border-color:#1a1a1a">✦ 智能粘贴天气</button>
+    <button class="btn" id="edit-btn" onclick="toggleEdit()">✏️ 编辑</button>
+    <button class="btn btn-save" id="save-btn" onclick="saveData()" style="display:none">💾 保存</button>
+    <button class="btn" onclick="exportHTML()">⬇ 导出 HTML</button>
+    <button class="btn" onclick="resetData()" style="color:#aaa;border-color:#eee">↺ 重置</button>
+  </div>
+</div>
+
+<div class="tbl-wrap">
+<table>
+<colgroup><col class="c-day"><col class="c-wx"><col class="c-time"><col class="c-act"><col class="c-type"><col class="c-role"><col class="c-note"></colgroup>
+<thead><tr>
+  <th>日期</th><th>天气</th><th>时间</th><th>活动内容</th><th>类型</th><th>负责岗位</th><th>备注</th>
+</tr></thead>
+<tbody id="tbody"></tbody>
+</table>
+<button class="add-row-btn" onclick="addRow()">＋ 新增一行</button>
+</div>
+
+<div class="footer">
+  <div class="legend">
+    <span class="legend-label">类型：</span>
+    <span class="badge t-outing">观光</span>
+    <span class="badge t-salon">主题研讨</span>
+    <span class="badge t-practice">实修沙龙</span>
+    <span class="badge t-visit">高校参访</span>
+  </div>
+</div>
+<div class="wx-panel">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;width:100%">
+    <div style="font-size:11px;color:#666">
+      <strong style="color:#1a1a1a">天气</strong> &nbsp;
+      <span style="color:#aaa;font-size:10px">建议户外活动日（4/3 · 4/7 · 4/9 · 4/11）出发前一晚更新</span>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+      <button class="btn" onclick="fetchWeather()">↻ 自动获取</button>
+      <button class="btn" onclick="openSmartPaste()" style="background:#1a1a1a;color:#fff;border-color:#1a1a1a">✦ 智能粘贴天气</button>
+      <span class="wx-conf high">≤3天高可信</span>
+      <span class="wx-conf mid">4—6天中等</span>
+      <span class="wx-conf low">7天+仅参考</span>
+    </div>
+  </div>
+  <div id="wx-status" style="font-size:10px;color:#aaa;width:100%;margin-top:4px">尚未更新天气</div>
+</div>
+
+<!-- Smart paste modal -->
+<div class="modal-overlay" id="wx-modal">
+  <div class="modal" style="width:520px;max-width:96vw;max-height:92vh;overflow-y:auto">
+    <h3 style="margin-bottom:6px">✦ 智能粘贴天气</h3>
+    <p style="font-size:12px;color:#666;line-height:1.6;margin-bottom:10px">
+      打开任意天气网站，复制4月3—11日的文字，粘贴到下方。支持
+      <a href="https://wttr.in/London" target="_blank" style="color:#1a73e8">wttr.in</a>、
+      <a href="https://www.bbc.co.uk/weather/2643743" target="_blank" style="color:#1a73e8">BBC</a>、
+      <a href="https://weather.com/weather/tenday/l/London" target="_blank" style="color:#1a73e8">Weather.com</a>、
+      中文天气等各种格式。
+    </p>
+    <textarea id="wx-paste-input"
+      placeholder="在此粘贴天气预报文字…&#10;&#10;支持任意格式，例如：&#10;Thu 3 Apr  Partly cloudy  14°C / 7°C&#10;4月4日 周五 小雨 13° 6°&#10;Friday April 5  Sunny intervals  High:13 Low:6&#10;…"
+      style="width:100%;height:150px;font-size:12px;border:1px solid #ddd;border-radius:8px;padding:10px;resize:vertical;font-family:inherit;color:#1a1a1a;background:#fafaf8;line-height:1.6"
+    ></textarea>
+    <div id="wx-parse-status" style="font-size:11px;margin:8px 0 4px;min-height:16px;color:#888"></div>
+    <div id="wx-preview" style="display:none;margin-bottom:12px">
+      <div style="font-size:11px;font-weight:600;color:#1a1a1a;margin-bottom:6px">解析结果（可直接修改）</div>
+      <div style="overflow-x:auto;border:1px solid #e8e6e0;border-radius:8px">
+        <table style="width:100%;border-collapse:collapse;min-width:380px">
+          <thead><tr style="background:#f8f7f4">
+            <th style="font-size:10px;color:#888;padding:6px 8px;text-align:left;border-bottom:1px solid #e8e6e0;white-space:nowrap">日期</th>
+            <th style="font-size:10px;color:#888;padding:6px 8px;border-bottom:1px solid #e8e6e0">图标</th>
+            <th style="font-size:10px;color:#888;padding:6px 8px;border-bottom:1px solid #e8e6e0">最高</th>
+            <th style="font-size:10px;color:#888;padding:6px 8px;border-bottom:1px solid #e8e6e0">最低</th>
+            <th style="font-size:10px;color:#888;padding:6px 8px;border-bottom:1px solid #e8e6e0">描述</th>
+          </tr></thead>
+          <tbody id="wx-preview-body"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="modal-btns">
+      <button onclick="closeWxModal()">取消</button>
+      <button class="btn" id="parse-btn" onclick="parseWeatherLocal()">解析</button>
+      <button class="btn-primary" id="apply-btn" onclick="applyParsed()" style="display:none">应用到行程表</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Save confirm modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <h3>保存成功</h3>
+    <p>行程数据已保存到浏览器本地存储。下次打开此页面时会自动恢复。</p>
+    <div class="modal-btns">
+      <button class="btn-primary" onclick="closeModal()">好的</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const DAYS=[
+  {date:"4/3", dow:"周四", th:"d0", label:"热身日",    rs:2},
+  {date:"4/4", dow:"周五", th:"d1", label:"我从哪里来", rs:2},
+  {date:"4/5", dow:"周六", th:"d2", label:"我是谁",    rs:2},
+  {date:"4/6", dow:"周日", th:"d3", label:"文明生活",  rs:2},
+  {date:"4/7", dow:"周一", th:"d4", label:"高校参访",  rs:1},
+  {date:"4/8", dow:"周二", th:"d5", label:"我想去哪里", rs:2},
+  {date:"4/9", dow:"周三", th:"d6", label:"高校参访",  rs:1},
+  {date:"4/10",dow:"周四", th:"d7", label:"总结日",    rs:2},
+  {date:"4/11",dow:"周五", th:"d8", label:"伦敦半日行", rs:1},
+];
+
+const DEFAULT_ROWS=[
+  {di:0,time:"上午",act:"Kew Gardens 皇家植物园",type:"t-outing",host:"Wendy",assist:"Levi",note:"午餐：Sagar 参与：ALL"},
+  {di:0,time:"下午",act:"公园行禅 / 单独互动",type:"t-outing",host:"",assist:"",note:"晚餐：303 备餐：Eloise"},
+  {di:1,time:"上午",act:"「我从哪里来」破冰研讨",type:"t-salon",host:"Wendy",assist:"Michael",note:"午餐：303 备餐：Eloise, Levi"},
+  {di:1,time:"下午",act:"羽毛球",type:"t-outing",host:"Michael",assist:"",note:"参与：Angel, Kelly 晚餐：Mildreds Victoria"},
+  {di:2,time:"上午",act:"「我是谁」主题研讨",type:"t-salon",host:"Wendy",assist:"Levi",note:"午餐：303 备餐：Eloise, 唐文英姐"},
+  {di:2,time:"下午",act:"咖啡沙龙",type:"t-practice",host:"Michael",assist:"Kelly",note:"参与: Wendy, Eloise 晚餐：Tendril"},
+  {di:3,time:"上午",act:"厨艺沙龙",type:"t-practice",host:"Eloise",assist:"Kelly, Levi",note:"午餐：303 参与：Wendy, Angel"},
+  {di:3,time:"下午",act:"大英博物馆",type:"t-outing",host:"Wendy",assist:"Michael",note:"晚餐：Tofu Vegan 参与：Levi"},
+  {di:4,time:"全天",act:"牛津一日游",type:"t-visit",host:"Angel",assist:"Eloise, Michael",note:"晚餐：303 备餐：Kelly, Wendy"},
+  {di:5,time:"上午",act:"「我想去哪里」主题研讨",type:"t-salon",host:"Wendy",assist:"Michael",note:"午餐：303 备餐：Eloise, 唐文英姐"},
+  {di:5,time:"下午",act:"烘焙沙龙",type:"t-practice",host:"Kelly",assist:"Eloise, Wendy",note:"参与：Angel 晚餐：Mali Thai"},
+  {di:6,time:"全天",act:"剑桥一日游",type:"t-visit",host:"Eloise",assist:"Angel, Michael",note:"晚餐：303 备餐：Kelly, Wendy"},
+  {di:7,time:"上午",act:"总结研讨：三个问题的贯通与收束",type:"t-salon",host:"Wendy",assist:"Michael",note:"午餐：303 备餐：Eloise, Angel 参与：全员"},
+  {di:7,time:"下午",act:"National Gallery 国家美术馆",type:"t-outing",host:"Eloise",assist:"Wendy",note:"晚餐：Omnom 参与：Angel, Kelly"},
+  {di:8,time:"全天",act:"泰晤士河 Greenwich 一日游",type:"t-outing",host:"Angel",assist:"Michael",note:"早午餐：303 备餐：Eloise, Wendy 晚餐：Mallow / Plants of Roselyn 参与：ALL"},
+];
+
+const WX_FALLBACK=[
+  {icon:"⛅",hi:"14°C",lo:"7°C",desc:"多云"},
+  {icon:"🌧",hi:"13°C",lo:"6°C",desc:"小雨"},
+  {icon:"🌤",hi:"13°C",lo:"6°C",desc:"多云转晴"},
+  {icon:"⛅",hi:"13°C",lo:"6°C",desc:"局部多云"},
+  {icon:"🌤",hi:"14°C",lo:"6°C",desc:"晴转多云"},
+  {icon:"⛅",hi:"14°C",lo:"6°C",desc:"多云"},
+  {icon:"🌤",hi:"14°C",lo:"5°C",desc:"多云转晴"},
+  {icon:"☁", hi:"13°C",lo:"5°C",desc:"阴"},
+  {icon:"🌤",hi:"14°C",lo:"6°C",desc:"多云转晴"},
+];
+
+const TYPE_NAMES={"t-outing":"观光","t-salon":"主题研讨","t-practice":"实修沙龙","t-visit":"高校参访"};
+
+let wxData=[...WX_FALLBACK];
+let editMode=false;
+let rows=[];
+
+function wmoIcon(c){if(c===0)return"☀️";if(c<=2)return"🌤";if(c<=3)return"☁";if(c<=48)return"🌫";if(c<=55)return"🌦";if(c<=65)return"🌧";if(c<=77)return"❄️";if(c<=82)return"🌦";return"⛈";}
+function wmoDesc(c){if(c===0)return"晴天";if(c<=2)return"多云";if(c<=3)return"阴天";if(c<=48)return"有雾";if(c<=55)return"毛毛雨";if(c<=65)return"有雨";if(c<=77)return"有雪";if(c<=82)return"阵雨";return"雷暴";}
+
+function loadData(){
+  try{
+    const saved=localStorage.getItem('xueyiweijia_v3');
+    if(saved){
+      const d=JSON.parse(saved);
+      if(d.rows&&d.rows.length>0){
+        rows=d.rows;
+        if(d.wx&&d.wx.length>0) wxData=d.wx;
+        return;
+      }
+    }
+  }catch(e){}
+  rows=DEFAULT_ROWS.map(r=>({...r}));
+}
+
+function saveData(){
+  collectTableState();
+  try{
+    localStorage.setItem('xueyiweijia_v3',JSON.stringify({rows,wx:wxData,saved:new Date().toISOString()}));
+    const btn=document.getElementById('save-btn');
+    btn.textContent='✓ 已保存';
+    btn.classList.add('btn-saved');
+    document.getElementById('save-status').textContent='上次保存：'+new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'});
+    setTimeout(()=>{btn.textContent='💾 保存';btn.classList.remove('btn-saved');},2000);
+    document.getElementById('modal').classList.add('open');
+  }catch(e){
+    alert('保存失败，请确认浏览器允许本地存储。');
+  }
+}
+
+function resetData(){
+  if(!confirm('确定恢复原始数据？当前所有修改将丢失。'))return;
+  localStorage.removeItem('xueyiweijia_v3');
+  rows=DEFAULT_ROWS.map(r=>({...r}));
+  wxData=[...WX_FALLBACK];
+  buildTable();
+  document.getElementById('save-status').textContent='';
+}
+
+function collectTableState(){
+  const trs=document.querySelectorAll('#tbody tr[data-ri]');
+  trs.forEach(tr=>{
+    const ri=parseInt(tr.dataset.ri);
+    if(ri>=rows.length)return;
+    const cells=tr.querySelectorAll('td[contenteditable]');
+    // act is first editable, note is last
+    const actCell=tr.querySelector('.act-cell');
+    const noteCell=tr.querySelector('.note-cell');
+    if(actCell) rows[ri].act=actCell.textContent.trim();
+    if(noteCell) rows[ri].note=noteCell.textContent.trim();
+    // role vals
+    const hostEl=tr.querySelector('.host-val');
+    const assistEl=tr.querySelector('.assist-val');
+    if(hostEl) rows[ri].host=hostEl.textContent.trim();
+    if(assistEl) rows[ri].assist=assistEl.textContent.trim();
+    // type
+    const sel=tr.querySelector('.type-sel');
+    if(sel) rows[ri].type=sel.value;
+  });
+}
+
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+
+function toggleEdit(){
+  editMode=!editMode;
+  const btn=document.getElementById('edit-btn');
+  const saveBtn=document.getElementById('save-btn');
+  const banner=document.getElementById('edit-banner');
+  if(editMode){
+    btn.textContent='✓ 完成编辑';
+    btn.style.background='#e8f0fe';
+    btn.style.color='#1a73e8';
+    saveBtn.style.display='inline-block';
+    banner.classList.add('visible');
+  }else{
+    btn.textContent='✏️ 编辑';
+    btn.style.background='';
+    btn.style.color='';
+    saveBtn.style.display='none';
+    banner.classList.remove('visible');
+    collectTableState();
+  }
+  applyEditMode();
+}
+
+function applyEditMode(){
+  document.querySelectorAll('td[contenteditable]').forEach(td=>{
+    td.contentEditable=editMode?'true':'false';
+  });
+  document.querySelectorAll('.role-val').forEach(el=>{
+    el.contentEditable=editMode?'true':'false';
+  });
+  document.querySelectorAll('.type-sel').forEach(sel=>{
+    sel.disabled=!editMode;
+  });
+}
+
+function roleCell(host,assist){
+  return`<td class="role-cell">
+    <div class="role-line"><span class="role-key">主持：</span><span class="role-val host-val" contenteditable="false">${host||''}</span></div>
+    <div class="role-line"><span class="role-key">助理：</span><span class="role-val assist-val" contenteditable="false">${assist||''}</span></div>
+  </td>`;
+}
+
+function buildTable(){
+  const tb=document.getElementById('tbody');
+  const seen={};
+  let html='';
+  rows.forEach((r,ri)=>{
+    if(r.di===undefined||r.di===null)return;
+    const d=DAYS[r.di];
+    if(!d)return;
+    const first=!seen[r.di];
+    if(first)seen[r.di]=true;
+    const wx=wxData[r.di]||WX_FALLBACK[r.di];
+    const dayTd=first?`<td class="day-cell ${d.th}" rowspan="${d.rs}">
+      <div class="day-num">${d.date}</div>
+      <div class="day-dow">${d.dow}</div>
+      <div class="day-label">${d.label}</div>
+    </td>`:'';
+    const wxTd=first?`<td class="wx-cell" id="wx-${r.di}" rowspan="${d.rs}">
+      <div class="wx-icon">${wx.icon}</div>
+      <div class="wx-temp">${wx.hi} / ${wx.lo}</div>
+      <div class="wx-desc">${wx.desc}</div>
+    </td>`:'';
+    const opts=Object.entries(TYPE_NAMES).map(([v,n])=>`<option value="${v}"${r.type===v?' selected':''}>${n}</option>`).join('');
+    html+=`<tr data-di="${r.di}" data-ri="${ri}">
+      ${dayTd}${wxTd}
+      <td class="time-cell">${r.time||''}</td>
+      <td class="act-cell" contenteditable="false" data-ph="活动内容">${r.act||''}</td>
+      <td class="type-cell">
+        <select class="type-sel" disabled onchange="syncBadge(this)">${opts}</select>
+        <div class="badge ${r.type||'t-outing'}">${TYPE_NAMES[r.type]||''}</div>
+      </td>
+      ${roleCell(r.host,r.assist)}
+      <td class="note-cell" contenteditable="false" data-ph="备注">${r.note||''}</td>
+    </tr>`;
+  });
+  tb.innerHTML=html;
+}
+
+function syncBadge(sel){
+  const b=sel.nextElementSibling;
+  b.className='badge '+sel.value;
+  b.textContent=TYPE_NAMES[sel.value]||'';
+}
+
+function addRow(){
+  collectTableState();
+  rows.push({di:null,time:'',act:'',type:'t-outing',host:'',assist:'',note:''});
+  buildTable();
+  // for new rows without di, append separately
+  const tb=document.getElementById('tbody');
+  const ri=rows.length-1;
+  const opts=Object.entries(TYPE_NAMES).map(([v,n])=>`<option value="${v}">${n}</option>`).join('');
+  const tr=document.createElement('tr');
+  tr.dataset.ri=ri;
+  tr.innerHTML=`
+    <td class="time-cell" contenteditable="${editMode?'true':'false'}" data-ph="时间" style="padding:7px 10px;font-size:11px;color:#888"></td>
+    <td class="act-cell" contenteditable="${editMode?'true':'false'}" data-ph="活动内容" style="font-size:12px;padding:7px 10px"></td>
+    <td class="type-cell">
+      <select class="type-sel" ${editMode?'':'disabled'} onchange="syncBadge(this)">${opts}</select>
+      <div class="badge t-outing">${TYPE_NAMES['t-outing']}</div>
+    </td>
+    <td class="role-cell">
+      <div class="role-line"><span class="role-key">主持：</span><span class="role-val host-val" contenteditable="${editMode?'true':'false'}"></span></div>
+      <div class="role-line"><span class="role-key">助理：</span><span class="role-val assist-val" contenteditable="${editMode?'true':'false'}"></span></div>
+    </td>
+    <td class="note-cell" contenteditable="${editMode?'true':'false'}" data-ph="备注" style="font-size:12px;padding:7px 10px"></td>`;
+  tb.appendChild(tr);
+  tr.querySelector('.act-cell').focus();
+}
+
+function exportHTML(){
+  collectTableState();
+  const blob=new Blob([document.documentElement.outerHTML],{type:'text/html;charset=utf-8'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='学以为家行程表.html';
+  a.click();
+}
+
+// confidence level based on days from today
+function getConf(dayIndex){
+  const activityDates=['2025-04-03','2025-04-04','2025-04-05','2025-04-06','2025-04-07','2025-04-08','2025-04-09','2025-04-10','2025-04-11'];
+  const today=new Date();today.setHours(0,0,0,0);
+  const act=new Date(activityDates[dayIndex]);
+  const diff=Math.round((act-today)/(1000*60*60*24));
+  if(diff<=3)return{cls:'high',label:'高可信'};
+  if(diff<=6)return{cls:'mid', label:'中等'};
+  return{cls:'low',label:'仅供参考'};
+}
+
+function renderWxCell(i,data){
+  const el=document.getElementById('wx-'+i);
+  if(!el||!data)return;
+  const conf=getConf(i);
+  el.innerHTML=`<div class="wx-icon">${data.icon}</div><div class="wx-temp">${data.hi} / ${data.lo}</div><div class="wx-desc">${data.desc}</div><div class="wx-conf ${conf.cls}">${conf.label}</div>`;
+}
+
+async function fetchWeather(){
+  // Try APIs silently in background; if both fail, show manual prompt
+  const ACT_DATES=['2025-04-03','2025-04-04','2025-04-05','2025-04-06','2025-04-07','2025-04-08','2025-04-09','2025-04-10','2025-04-11'];
+  async function safeFetch(url){
+    try{
+      const c=new AbortController();
+      const t=setTimeout(()=>c.abort(),7000);
+      const r=await fetch(url,{signal:c.signal});
+      clearTimeout(t);
+      if(!r.ok)return null;
+      return await r.json();
+    }catch(e){return null;}
+  }
+  let om=null;
+  const d=await safeFetch('https://api.open-meteo.com/v1/forecast?latitude=51.5074&longitude=-0.1278&daily=weathercode,temperature_2m_max,temperature_2m_min&start_date=2025-04-03&end_date=2025-04-11&timezone=Europe%2FLondon&forecast_days=16');
+  if(d?.daily?.weathercode?.length>=9){
+    om=d.daily.weathercode.map((c,i)=>({icon:wmoIcon(c),hi:Math.round(d.daily.temperature_2m_max[i])+'°C',lo:Math.round(d.daily.temperature_2m_min[i])+'°C',desc:wmoDesc(c)}));
+  }
+  let wt=null;
+  const w=await safeFetch('https://wttr.in/London?format=j1');
+  if(w?.weather?.length){
+    const today=new Date();today.setHours(0,0,0,0);wt={};
+    w.weather.forEach((day,off)=>{
+      const dd=new Date(today);dd.setDate(today.getDate()+off);
+      const iso=dd.toISOString().slice(0,10);
+      const idx=ACT_DATES.indexOf(iso);
+      if(idx>=0){const code=parseInt(day.hourly[4]?.weatherCode||'116');wt[idx]={icon:wttrIcon(code),hi:Math.round(day.maxtempC)+'°C',lo:Math.round(day.mintempC)+'°C',desc:day.hourly[4]?.weatherDesc?.[0]?.value||''};}
+    });
+    if(!Object.keys(wt).length)wt=null;
+  }
+  if(!om&&!wt){
+    document.getElementById('wx-status').textContent='自动获取失败（网络限制），请点击「更新天气」手动填写';
+    return;
+  }
+  let merged=[];
+  for(let i=0;i<9;i++){
+    const o=om?om[i]:null,ww=wt?wt[i]:null;
+    if(o&&ww)merged.push({icon:ww.icon,hi:Math.round((parseInt(o.hi)+parseInt(ww.hi))/2)+'°C',lo:Math.round((parseInt(o.lo)+parseInt(ww.lo))/2)+'°C',desc:ww.desc||o.desc});
+    else if(o)merged.push({...o});
+    else if(ww)merged.push({...ww});
+    else merged.push({...WX_FALLBACK[i]});
+  }
+  wxData=merged;
+  for(let i=0;i<9;i++)renderWxCell(i,wxData[i]);
+  const now=new Date();
+  const src=om&&wt?'双源（Open-Meteo + wttr.in）':om?'Open-Meteo':wt?'wttr.in':'';
+  document.getElementById('wx-status').textContent=`自动更新成功 · ${now.toLocaleDateString('zh-CN',{month:'numeric',day:'numeric'})} ${now.toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'})} · 来源：${src}`;
+}
+
+const WX_ICONS=['☀️','🌤','⛅','☁','🌦','🌧','⛈','❄️','🌫'];
+const DAY_LABELS=['4/3 周四','4/4 周五','4/5 周六','4/6 周日','4/7 周一','4/8 周二','4/9 周三','4/10 周四','4/11 周五'];
+const ACT_DAYS=[3,4,5,6,7,8,9,10,11]; // April dates
+
+let parsedWx=null;
+
+function openSmartPaste(){
+  document.getElementById('wx-paste-input').value='';
+  document.getElementById('wx-parse-status').textContent='';
+  document.getElementById('wx-preview').style.display='none';
+  document.getElementById('apply-btn').style.display='none';
+  document.getElementById('parse-btn').style.display='inline-block';
+  parsedWx=null;
+  document.getElementById('wx-modal').classList.add('open');
+}
+function closeWxModal(){document.getElementById('wx-modal').classList.remove('open');}
+
+// ── condition → icon mapping ──────────────────────────────
+function descToIcon(desc){
+  const s=(desc||'').toLowerCase();
+  if(/thunder|storm|雷/.test(s))return'⛈';
+  if(/snow|sleet|blizzard|雪/.test(s))return'❄️';
+  if(/fog|mist|haze|霾|雾/.test(s))return'🌫';
+  if(/heavy rain|downpour|大雨|暴雨/.test(s))return'🌧';
+  if(/shower|drizzle|light rain|小雨|阵雨|毛毛雨/.test(s))return'🌦';
+  if(/rain|rainy|降雨|有雨/.test(s))return'🌧';
+  if(/overcast|cloudy|阴|多云/.test(s)){
+    if(/partly|mostly|少云|局部/.test(s))return'⛅';
+    return'☁';
+  }
+  if(/cloud|云/.test(s))return'🌤';
+  if(/clear|sunny|晴/.test(s))return'☀️';
+  return'⛅';
+}
+
+// ── temperature normalisation (F→C if needed) ────────────
+function normTemp(val,unit){
+  let n=parseFloat(val);
+  if(isNaN(n))return null;
+  if(unit&&unit.toUpperCase()==='F') n=Math.round((n-32)*5/9);
+  else n=Math.round(n);
+  return n+'°C';
+}
+
+// ── describe normalisation ────────────────────────────────
+const DESC_MAP={
+  'sunny':'晴天','clear':'晴天','partly cloudy':'局部多云','mostly cloudy':'多云',
+  'cloudy':'多云','overcast':'阴天','light rain':'小雨','rain':'有雨',
+  'heavy rain':'大雨','showers':'阵雨','drizzle':'毛毛雨','thunderstorm':'雷暴',
+  'snow':'有雪','sleet':'雨夹雪','fog':'有雾','mist':'薄雾',
+  'sunny intervals':'晴转多云','light cloud':'少云','thick cloud':'多云',
+};
+function normDesc(raw){
+  if(!raw)return'';
+  const low=raw.toLowerCase().trim();
+  for(const[k,v]of Object.entries(DESC_MAP)){if(low.includes(k))return v;}
+  // If already short Chinese, return as-is
+  if(/[\u4e00-\u9fa5]/.test(raw)&&raw.length<=6)return raw.trim();
+  // Truncate long English
+  return raw.trim().replace(/\b\w/g,c=>c.toUpperCase()).slice(0,20);
+}
+
+// ── main local parser ─────────────────────────────────────
+function parseWeatherLocal(){
+  const raw=document.getElementById('wx-paste-input').value.trim();
+  const statusEl=document.getElementById('wx-parse-status');
+  if(!raw){statusEl.textContent='请先粘贴天气文字';return;}
+  statusEl.textContent='解析中…';
+
+  // Split into lines, filter blanks
+  const lines=raw.split(/\n/).map(l=>l.trim()).filter(Boolean);
+  const results=new Array(9).fill(null).map((_,i)=>({
+    date:'4/'+(i+3), hi:null, lo:null, desc:'', icon:'⛅', matched:false
+  }));
+
+  // ── Pattern library ──────────────────────────────────────
+  // Temp pattern: captures number + optional unit (°C / °F / ° / C / F)
+  const T='([+-]?\\d{1,3})\\s*(?:°\\s*[CF]?|[CF]\\b)?';
+
+  const PATTERNS=[
+    // Chinese: 4月3日 / 4/3 + any order of desc/temp
+    {re:/4[月\/](\d{1,2})[日]?\s*(?:周.)?(.{0,15}?)([+-]?\d{1,3})\s*°?[CF]?\s*[\/~至\-]\s*([+-]?\d{1,3})\s*°?[CF]?/,
+      fn:(m)=>({day:+m[1],hi:normTemp(Math.max(+m[3],+m[4]),''),lo:normTemp(Math.min(+m[3],+m[4]),''),desc:normDesc(m[2])})},
+    // English: "Apr 3" or "April 3" or "3 Apr" with high/low
+    {re:/(?:apr(?:il)?\s+(\d{1,2})|(\d{1,2})\s+apr(?:il)?)[,\s]+([a-z\s]{2,30}?)\s+(?:high[:\s]*)?([+-]?\d{1,3})\s*°?([cf])?\s*[\/\-~]\s*(?:low[:\s]*)?([+-]?\d{1,3})\s*°?([cf])?/i,
+      fn:(m)=>({day:+(m[1]||m[2]),hi:normTemp(Math.max(+m[4],+m[6]),m[5]||m[7]),lo:normTemp(Math.min(+m[4],+m[6]),m[5]||m[7]),desc:normDesc(m[3])})},
+    // wttr.in text: "Thu Apr  3 +14°C +7°C Partly cloudy"
+    {re:/(?:mon|tue|wed|thu|fri|sat|sun)[a-z]*\s+apr(?:il)?\s+(\d{1,2})\s+([+-]?\d{1,3})°?C?\s+([+-]?\d{1,3})°?C?\s+(.+)/i,
+      fn:(m)=>({day:+m[1],hi:normTemp(Math.max(+m[2],+m[3]),'C'),lo:normTemp(Math.min(+m[2],+m[3]),'C'),desc:normDesc(m[4])})},
+    // BBC style: "Thursday 3 April Partly Cloudy 14° 7°"
+    {re:/(?:mon|tue|wed|thu|fri|sat|sun)[a-z]*\s+(\d{1,2})\s+apr(?:il)?[,\s]+(.+?)\s+(\d{1,3})°\s+(\d{1,3})°/i,
+      fn:(m)=>({day:+m[1],hi:normTemp(Math.max(+m[3],+m[4]),'C'),lo:normTemp(Math.min(+m[3],+m[4]),'C'),desc:normDesc(m[2])})},
+    // "Apr 3 14°C 7°C desc" or "3 April 14 7 Cloudy"
+    {re:/(?:apr(?:il)?\s+(\d{1,2})|(\d{1,2})\s+apr(?:il)?)[^\d]*?([+-]?\d{1,3})\s*°?[CF]?[^\d]+([+-]?\d{1,3})\s*°?[CF]?\s*(.{0,30})/i,
+      fn:(m)=>({day:+(m[1]||m[2]),hi:normTemp(Math.max(+m[3],+m[4]),''),lo:normTemp(Math.min(+m[3],+m[4]),''),desc:normDesc(m[5])})},
+    // Fallback: any line with a day number 3-11 and two temperatures
+    {re:/\b([3-9]|1[01])\b[^\d]*([+-]?\d{1,3})\s*°[CF]?[^\d]+([+-]?\d{1,3})\s*°[CF]?\s*(.{0,30})/,
+      fn:(m)=>({day:+m[1],hi:normTemp(Math.max(+m[2],+m[3]),''),lo:normTemp(Math.min(+m[2],+m[3]),''),desc:normDesc(m[4])})},
+  ];
+
+  for(const line of lines){
+    for(const {re,fn} of PATTERNS){
+      const m=line.match(re);
+      if(!m)continue;
+      try{
+        const r=fn(m);
+        if(!r||!r.day)continue;
+        const idx=ACT_DAYS.indexOf(r.day);
+        if(idx<0)continue;
+        if(results[idx].matched)continue; // first match wins
+        results[idx]={...results[idx],...r,icon:descToIcon(r.desc||line),matched:true};
+      }catch(e){}
+      break;
+    }
+  }
+
+  // Fill unmatched with fallback
+  results.forEach((r,i)=>{
+    if(!r.matched){r.hi=WX_FALLBACK[i].hi;r.lo=WX_FALLBACK[i].lo;r.desc=WX_FALLBACK[i].desc;r.icon=WX_FALLBACK[i].icon;}
+  });
+
+  const matched=results.filter(r=>r.matched).length;
+  if(matched===0){
+    statusEl.style.color='#A32D2D';
+    statusEl.textContent='未能识别任何天气信息。请确认文字包含日期（如 Apr 3 / 4月3日）和温度，或尝试不同格式。';
+    return;
+  }
+  statusEl.style.color='#085041';
+  statusEl.textContent=`✓ 识别到 ${matched} 天的数据${matched<9?' · 其余'+(9-matched)+'天用历史均值补全':''}`;
+
+  parsedWx=results;
+  renderPreview(results);
+  document.getElementById('wx-preview').style.display='block';
+  document.getElementById('apply-btn').style.display='inline-block';
+}
+
+function renderPreview(data){
+  const WX_ICON_OPTS=WX_ICONS.map(ic=>`<option value="${ic}">${ic}</option>`).join('');
+  document.getElementById('wx-preview-body').innerHTML=data.map((d,i)=>{
+    const iconOpts=WX_ICONS.map(ic=>`<option value="${ic}"${ic===d.icon?' selected':''}>${ic}</option>`).join('');
+    const rowBg=d.matched?'':'background:#fffbf0';
+    return`<tr style="border-bottom:1px solid #f0ede8;${rowBg}">
+      <td style="font-size:11px;padding:5px 8px;white-space:nowrap;color:${d.matched?'#333':'#aaa'}">${DAY_LABELS[i]}${d.matched?'':' *'}</td>
+      <td style="padding:5px 8px"><select id="pv-icon-${i}" style="font-size:14px;border:1px solid #ddd;border-radius:4px;background:#fff">${iconOpts}</select></td>
+      <td style="padding:5px 8px"><input id="pv-hi-${i}" value="${d.hi||'—'}" style="width:58px;font-size:11px;border:1px solid #ddd;border-radius:4px;padding:3px 5px"></td>
+      <td style="padding:5px 8px"><input id="pv-lo-${i}" value="${d.lo||'—'}" style="width:58px;font-size:11px;border:1px solid #ddd;border-radius:4px;padding:3px 5px"></td>
+      <td style="padding:5px 8px"><input id="pv-desc-${i}" value="${d.desc||''}" style="width:100%;font-size:11px;border:1px solid #ddd;border-radius:4px;padding:3px 5px"></td>
+    </tr>`;
+  }).join('');
+}
+
+function applyParsed(){
+  for(let i=0;i<9;i++){
+    wxData[i]={
+      icon:document.getElementById('pv-icon-'+i)?.value||'⛅',
+      hi:document.getElementById('pv-hi-'+i)?.value||'—',
+      lo:document.getElementById('pv-lo-'+i)?.value||'—',
+      desc:document.getElementById('pv-desc-'+i)?.value||''
+    };
+    renderWxCell(i,wxData[i]);
+  }
+  const now=new Date();
+  document.getElementById('wx-status').textContent=
+    `智能粘贴更新 · ${now.toLocaleDateString('zh-CN',{month:'numeric',day:'numeric'})} ${now.toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'})}`;
+  closeWxModal();
+}
+
+async function parseWeather(){parseWeatherLocal();}
+
+function wttrIcon(code){
+  if(code===113)return'☀️';
+  if([116,119].includes(code))return'⛅';
+  if(code===122)return'☁';
+  if([143,248,260].includes(code))return'🌫';
+  if([176,293,296,299,302,305,308,353,356,359].includes(code))return'🌧';
+  if([179,182,185,227,230,281,284,311,314,317,320,323,326,329,332,335,338,350,362,365,368,371,374,377].includes(code))return'❄️';
+  if([200,386,389,392,395].includes(code))return'⛈';
+  return'🌦';
+}
+
+function checkSaveStatus(){
+  try{
+    const saved=localStorage.getItem('xueyiweijia_v3');
+    if(saved){
+      const d=JSON.parse(saved);
+      if(d.saved){
+        const t=new Date(d.saved);
+        document.getElementById('save-status').textContent='上次保存：'+t.toLocaleDateString('zh-CN',{month:'numeric',day:'numeric'})+' '+t.toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit'});
+      }
+    }
+  }catch(e){}
+}
+
+loadData();
+buildTable();
+fetchWeather();
+checkSaveStatus();
+</script>
+</body>
+</html>
