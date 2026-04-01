@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
+<html lang="zh"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>学以为家 · 行程表 2026</title>
@@ -141,7 +139,7 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
       <button class="btn btn-dark" onclick="openPaste()">✦ 智能粘贴</button>
     </div>
   </div>
-  <div class="wx-status" id="wx-status">点击「自动获取」或「智能粘贴」更新天气</div>
+  <div class="wx-status" id="wx-status">智能粘贴更新 · 4/1 15:40</div>
   <div class="wx-legend">
     <span class="conf ch">≤3天 高可信</span>
     <span class="conf cm">4—6天 中等</span>
@@ -153,10 +151,283 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
   <button class="btn btn-edit" id="edit-btn" onclick="toggleEdit()">✏️ 编辑</button>
   <button class="btn btn-dark" onclick="saveAll()">💾 保存 schedule.html</button>
   <button class="btn" onclick="resetAll()" style="color:#aaa">↺ 重置</button>
-  <span class="save-ts" id="save-ts"></span>
+  <span class="save-ts" id="save-ts">已保存 4/1 15:40</span>
 </div>
 
-<div id="days"></div>
+<div id="days"><div class="day d0">
+      <div class="day-hdr" onclick="tog(0)">
+        <div class="day-date-col"><div class="day-num">4/3</div><div class="day-dow">周五</div><div class="day-label">热身日</div></div>
+        <div class="day-info"><div class="day-theme">伦敦半日行</div><div class="day-theme-en">A Morning in London</div></div>
+        <div class="day-wx" id="wxc0"><div class="day-wx-icon">🌧</div><div class="day-wx-temp">13°C / 9°C</div><div class="day-wx-desc">🌧 多云有雨13°C9°C高</div><div class="conf ch">高可信</div></div>
+      </div>
+      <div class="day-body" id="body0"><div class="row" data-ri="0">
+        <div class="row-time">上午</div>
+        <div class="row-content">
+          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">Kew Gardens 皇家植物园</div>
+          <div class="type-wrap">
+            <span class="row-type t-outing">观光</span>
+            <select class="type-sel" onchange="typeChange(this,0)"><option value="t-outing" selected="">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+          </div>
+          <div class="row-roles">
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Wendy</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Levi</span>
+          </div>
+          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：ALL；午餐：Sagar</span></div>
+        </div>
+      </div><div class="row" data-ri="1">
+        <div class="row-time">下午</div>
+        <div class="row-content">
+          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">公园行禅 / 单独互动</div>
+          <div class="type-wrap">
+            <span class="row-type t-outing">观光</span>
+            <select class="type-sel" onchange="typeChange(this,1)"><option value="t-outing" selected="">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+          </div>
+          <div class="row-roles">
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host"></span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist"></span>
+          </div>
+          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">晚餐：303；备餐：Eloise</span></div>
+        </div>
+      </div></div>
+    </div><div class="day d1">
+      <div class="day-hdr" onclick="tog(1)">
+        <div class="day-date-col"><div class="day-num">4/4</div><div class="day-dow">周六</div><div class="day-label">欢迎会</div></div>
+        <div class="day-info"><div class="day-theme">欢迎会</div><div class="day-theme-en">Welcome Gathering</div></div>
+        <div class="day-wx" id="wxc1"><div class="day-wx-icon">🌦</div><div class="day-wx-temp">14°C / 10°C</div><div class="day-wx-desc">多云有毛毛雨</div><div class="conf ch">高可信</div></div>
+      </div>
+      <div class="day-body" id="body1"><div class="row" data-ri="2">
+        <div class="row-time">上午</div>
+        <div class="row-content">
+          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">「我从哪里来」破冰研讨</div>
+          <div class="type-wrap">
+            <span class="row-type t-salon">主题研讨</span>
+            <select class="type-sel" onchange="typeChange(this,2)"><option value="t-outing">观光</option><option value="t-salon" selected="">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+          </div>
+          <div class="row-roles">
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Wendy</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Michael</span>
+          </div>
+          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：ALL；午餐：303；备餐：Eloise, Levi</span></div>
+        </div>
+      </div><div class="row" data-ri="3">
+        <div class="row-time">下午</div>
+        <div class="row-content">
+          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">羽毛球</div>
+          <div class="type-wrap">
+            <span class="row-type t-outing">观光</span>
+            <select class="type-sel" onchange="typeChange(this,3)"><option value="t-outing" selected="">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+          </div>
+          <div class="row-roles">
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Michael</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist"></span>
+          </div>
+          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：Angel, Kelly；晚餐：Mildreds Victoria</span></div>
+        </div>
+      </div></div>
+    </div><div class="day d2">
+      <div class="day-hdr" onclick="tog(2)">
+        <div class="day-date-col"><div class="day-num">4/5</div><div class="day-dow">周日</div><div class="day-label">我是谁</div></div>
+        <div class="day-info"><div class="day-theme">咖啡艺</div><div class="day-theme-en">The Art of Coffee</div></div>
+        <div class="day-wx" id="wxc2"><div class="day-wx-icon">🌧</div><div class="day-wx-temp">13°C / 9°C</div><div class="day-wx-desc">有雨</div><div class="conf cm">中等</div></div>
+      </div>
+      <div class="day-body" id="body2"><div class="row" data-ri="4">
+        <div class="row-time">上午</div>
+        <div class="row-content">
+          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">「我是谁」主题研讨</div>
+          <div class="type-wrap">
+            <span class="row-type t-salon">主题研讨</span>
+            <select class="type-sel" onchange="typeChange(this,4)"><option value="t-outing">观光</option><option value="t-salon" selected="">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+          </div>
+          <div class="row-roles">
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Wendy</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Levi</span>
+          </div>
+          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：Kelly, Angel, Michael；午餐：303；备餐：Eloise, 唐文英姐</span></div>
+        </div>
+      </div><div class="row" data-ri="5">
+        <div class="row-time">下午</div>
+        <div class="row-content">
+          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">咖啡沙龙</div>
+          <div class="type-wrap">
+            <span class="row-type t-practice">实修沙龙</span>
+            <select class="type-sel" onchange="typeChange(this,5)"><option value="t-outing">观光</option><option value="t-salon">主题研讨</option><option value="t-practice" selected="">实修沙龙</option><option value="t-visit">高校参访</option></select>
+          </div>
+          <div class="row-roles">
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Michael</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Kelly</span>
+          </div>
+          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：Wendy, Eloise；晚餐：Tendril</span></div>
+        </div>
+      </div></div>
+    </div><div class="day d3">
+      <div class="day-hdr" onclick="tog(3)">
+        <div class="day-date-col"><div class="day-num">4/6</div><div class="day-dow">周一</div><div class="day-label">文明生活</div></div>
+        <div class="day-info"><div class="day-theme">厨艺沙龙</div><div class="day-theme-en">Pure Cooking Workshop</div></div>
+        <div class="day-wx" id="wxc3"><div class="day-wx-icon">⛅</div><div class="day-wx-temp">16°C / 8°C</div><div class="day-wx-desc">局部多云</div><div class="conf cm">中等</div></div>
+      </div>
+      <div class="day-body" id="body3"><div class="row" data-ri="6">
+        <div class="row-time">上午</div>
+        <div class="row-content">
+          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">大英博物馆</div>
+          <div class="type-wrap">
+            <span class="row-type t-outing">观光</span>
+            <select class="type-sel" onchange="typeChange(this,6)"><option value="t-outing" selected="">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+          </div>
+          <div class="row-roles">
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Wendy</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Michael</span>
+          </div>
+          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">午餐：Tofu Vegan；参与：Levi</span></div>
+        </div>
+      </div><div class="row" data-ri="7">
+        <div class="row-time">下午</div>
+        <div class="row-content">
+          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">厨艺沙龙</div>
+          <div class="type-wrap">
+            <span class="row-type t-practice">实修沙龙</span>
+            <select class="type-sel" onchange="typeChange(this,7)"><option value="t-outing">观光</option><option value="t-salon">主题研讨</option><option value="t-practice" selected="">实修沙龙</option><option value="t-visit">高校参访</option></select>
+          </div>
+          <div class="row-roles">
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Eloise</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Kelly, Levi</span>
+          </div>
+          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：Angel；晚餐：303</span></div>
+        </div>
+      </div></div>
+    </div><div class="day d4">
+      <div class="day-hdr" onclick="tog(4)">
+        <div class="day-date-col"><div class="day-num">4/7</div><div class="day-dow">周二</div><div class="day-label">高校参访</div></div>
+        <div class="day-info"><div class="day-theme">牛津一日</div><div class="day-theme-en">A Day in Oxford</div></div>
+        <div class="day-wx" id="wxc4"><div class="day-wx-icon">⛅</div><div class="day-wx-temp">16°C / 8°C</div><div class="day-wx-desc">多云</div><div class="conf cm">中等</div></div>
+      </div>
+      <div class="day-body" id="body4"><div class="row" data-ri="8">
+        <div class="row-time">全天</div>
+        <div class="row-content">
+          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">牛津一日游</div>
+          <div class="type-wrap">
+            <span class="row-type t-visit">高校参访</span>
+            <select class="type-sel" onchange="typeChange(this,8)"><option value="t-outing">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit" selected="">高校参访</option></select>
+          </div>
+          <div class="row-roles">
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Angel</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Eloise, Michael</span>
+          </div>
+          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">晚餐：303；备餐：Kelly, Wendy</span></div>
+        </div>
+      </div></div>
+    </div><div class="day d5">
+      <div class="day-hdr" onclick="tog(5)">
+        <div class="day-date-col"><div class="day-num">4/8</div><div class="day-dow">周三</div><div class="day-label">我想去哪里</div></div>
+        <div class="day-info"><div class="day-theme">烘焙艺</div><div class="day-theme-en">The Art of Baking</div></div>
+        <div class="day-wx" id="wxc5"><div class="day-wx-icon">⛅</div><div class="day-wx-temp">15°C / 8°C</div><div class="day-wx-desc">多云</div><div class="conf cl">仅参考</div></div>
+      </div>
+      <div class="day-body" id="body5"><div class="row" data-ri="9">
+        <div class="row-time">上午</div>
+        <div class="row-content">
+          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">「我想去哪里」主题研讨</div>
+          <div class="type-wrap">
+            <span class="row-type t-salon">主题研讨</span>
+            <select class="type-sel" onchange="typeChange(this,9)"><option value="t-outing">观光</option><option value="t-salon" selected="">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+          </div>
+          <div class="row-roles">
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Wendy</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Michael</span>
+          </div>
+          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：Angel, Kelly, Levi；午餐：303；备餐：Eloise, 唐文英</span></div>
+        </div>
+      </div><div class="row" data-ri="10">
+        <div class="row-time">下午</div>
+        <div class="row-content">
+          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">烘焙沙龙</div>
+          <div class="type-wrap">
+            <span class="row-type t-practice">实修沙龙</span>
+            <select class="type-sel" onchange="typeChange(this,10)"><option value="t-outing">观光</option><option value="t-salon">主题研讨</option><option value="t-practice" selected="">实修沙龙</option><option value="t-visit">高校参访</option></select>
+          </div>
+          <div class="row-roles">
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Kelly</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Eloise, Wendy</span>
+          </div>
+          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：Levi；晚餐：Mali Thai</span></div>
+        </div>
+      </div></div>
+    </div><div class="day d6">
+      <div class="day-hdr" onclick="tog(6)">
+        <div class="day-date-col"><div class="day-num">4/9</div><div class="day-dow">周四</div><div class="day-label">高校参访</div></div>
+        <div class="day-info"><div class="day-theme">剑桥一日</div><div class="day-theme-en">A Day in Cambridge</div></div>
+        <div class="day-wx" id="wxc6"><div class="day-wx-icon">🌤</div><div class="day-wx-temp">15°C / 8°C</div><div class="day-wx-desc">多云转晴</div><div class="conf cl">仅参考</div></div>
+      </div>
+      <div class="day-body" id="body6"><div class="row" data-ri="11">
+        <div class="row-time">全天</div>
+        <div class="row-content">
+          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">剑桥一日游</div>
+          <div class="type-wrap">
+            <span class="row-type t-visit">高校参访</span>
+            <select class="type-sel" onchange="typeChange(this,11)"><option value="t-outing">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit" selected="">高校参访</option></select>
+          </div>
+          <div class="row-roles">
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Eloise</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Angel, Michael</span>
+          </div>
+          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">晚餐：303；备餐：Kelly, Wendy</span></div>
+        </div>
+      </div></div>
+    </div><div class="day d7">
+      <div class="day-hdr" onclick="tog(7)">
+        <div class="day-date-col"><div class="day-num">4/10</div><div class="day-dow">周五</div><div class="day-label">总结日</div></div>
+        <div class="day-info"><div class="day-theme">总结与收获</div><div class="day-theme-en">Reflection &amp; Discovery</div></div>
+        <div class="day-wx" id="wxc7"><div class="day-wx-icon">🌤</div><div class="day-wx-temp">17°C / 8°C</div><div class="day-wx-desc">多云转晴</div><div class="conf cl">仅参考</div></div>
+      </div>
+      <div class="day-body" id="body7"><div class="row" data-ri="12">
+        <div class="row-time">上午</div>
+        <div class="row-content">
+          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">总结研讨：三个问题的贯通与收束</div>
+          <div class="type-wrap">
+            <span class="row-type t-salon">主题研讨</span>
+            <select class="type-sel" onchange="typeChange(this,12)"><option value="t-outing">观光</option><option value="t-salon" selected="">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+          </div>
+          <div class="row-roles">
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Wendy</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Michael</span>
+          </div>
+          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：全员；午餐：303；备餐：Eloise, Angel, Kelly</span></div>
+        </div>
+      </div><div class="row" data-ri="13">
+        <div class="row-time">下午</div>
+        <div class="row-content">
+          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">National Gallery 国家美术馆</div>
+          <div class="type-wrap">
+            <span class="row-type t-outing">观光</span>
+            <select class="type-sel" onchange="typeChange(this,13)"><option value="t-outing" selected="">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+          </div>
+          <div class="row-roles">
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Eloise</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Wendy</span>
+          </div>
+          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：Angel, Kelly；晚餐：Omnom</span></div>
+        </div>
+      </div></div>
+    </div><div class="day d8">
+      <div class="day-hdr" onclick="tog(8)">
+        <div class="day-date-col"><div class="day-num">4/11</div><div class="day-dow">周六</div><div class="day-label">伦敦一日</div></div>
+        <div class="day-info"><div class="day-theme">伦敦一日</div><div class="day-theme-en">A Day in London</div></div>
+        <div class="day-wx" id="wxc8"><div class="day-wx-icon">⛅</div><div class="day-wx-temp">16°C / 9°C</div><div class="day-wx-desc">多云</div><div class="conf cl">仅参考</div></div>
+      </div>
+      <div class="day-body" id="body8"><div class="row" data-ri="14">
+        <div class="row-time">全天</div>
+        <div class="row-content">
+          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">泰晤士河 Greenwich 一日游</div>
+          <div class="type-wrap">
+            <span class="row-type t-outing">观光</span>
+            <select class="type-sel" onchange="typeChange(this,14)"><option value="t-outing" selected="">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+          </div>
+          <div class="row-roles">
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Angel</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Michael</span>
+          </div>
+          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：ALL；早午餐：303；备餐：Eloise, Wendy；晚餐：Mallow / Plants of Roselyn</span></div>
+        </div>
+      </div></div>
+    </div></div>
 </div>
 
 <!-- Smart paste modal -->
@@ -164,19 +435,78 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
   <div class="modal">
     <h3>✦ 智能粘贴天气</h3>
     <p>从 <a href="https://wttr.in/London" target="_blank" style="color:#1a73e8">wttr.in</a>、<a href="https://www.bbc.co.uk/weather/2643743" target="_blank" style="color:#1a73e8">BBC天气</a> 等网站复制4月3—11日天气文字，粘贴到下方。</p>
-    <textarea id="wx-paste" placeholder="粘贴天气文字…&#10;&#10;支持格式：&#10;Apr 3  Partly cloudy  14°C / 7°C&#10;4月4日 周六 小雨 13° 6°&#10;Sat 4 April  Sunny  High:14 Low:8"></textarea>
-    <div class="ps" id="ps"></div>
-    <div id="pvwrap" style="display:none;overflow-x:auto;margin-bottom:4px">
+    <textarea id="wx-paste" placeholder="粘贴天气文字…
+
+支持格式：
+Apr 3  Partly cloudy  14°C / 7°C
+4月4日 周六 小雨 13° 6°
+Sat 4 April  Sunny  High:14 Low:8"></textarea>
+    <div class="ps" id="ps">✓ 识别 1 天 · 其余 8 天用历史均值补全</div>
+    <div id="pvwrap" style="display: block; overflow-x: auto; margin-bottom: 4px;">
       <div style="font-size:11px;font-weight:600;margin-bottom:6px">解析结果（可修改）</div>
       <table class="ptbl">
         <thead><tr><th>日期</th><th>图标</th><th>最高</th><th>最低</th><th style="min-width:80px">描述</th></tr></thead>
-        <tbody id="pvbody"></tbody>
+        <tbody id="pvbody"><tr style="">
+      <td style="white-space:nowrap;font-size:10px;color:#333">4/3 周五</td>
+      <td><select id="pi0"><option value="☀️">☀️</option><option value="🌤">🌤</option><option value="⛅">⛅</option><option value="☁">☁</option><option value="🌦">🌦</option><option value="🌧" selected="">🌧</option><option value="⛈">⛈</option><option value="❄️">❄️</option><option value="🌫">🌫</option></select></td>
+      <td><input id="ph0" value="4°C" class="w52"></td>
+      <td><input id="pl0" value="4°C" class="w52"></td>
+      <td><input id="pd0" value="🌧 多云有雨13°C9°C高" class="wide"></td>
+    </tr><tr style="background:#fffbf0">
+      <td style="white-space:nowrap;font-size:10px;color:#aaa">4/4 周六 *</td>
+      <td><select id="pi1"><option value="☀️">☀️</option><option value="🌤" selected="">🌤</option><option value="⛅">⛅</option><option value="☁">☁</option><option value="🌦">🌦</option><option value="🌧">🌧</option><option value="⛈">⛈</option><option value="❄️">❄️</option><option value="🌫">🌫</option></select></td>
+      <td><input id="ph1" value="14°C" class="w52"></td>
+      <td><input id="pl1" value="8°C" class="w52"></td>
+      <td><input id="pd1" value="多云转晴" class="wide"></td>
+    </tr><tr style="background:#fffbf0">
+      <td style="white-space:nowrap;font-size:10px;color:#aaa">4/5 周日 *</td>
+      <td><select id="pi2"><option value="☀️">☀️</option><option value="🌤" selected="">🌤</option><option value="⛅">⛅</option><option value="☁">☁</option><option value="🌦">🌦</option><option value="🌧">🌧</option><option value="⛈">⛈</option><option value="❄️">❄️</option><option value="🌫">🌫</option></select></td>
+      <td><input id="ph2" value="13°C" class="w52"></td>
+      <td><input id="pl2" value="6°C" class="w52"></td>
+      <td><input id="pd2" value="多云转晴" class="wide"></td>
+    </tr><tr style="background:#fffbf0">
+      <td style="white-space:nowrap;font-size:10px;color:#aaa">4/6 周一 *</td>
+      <td><select id="pi3"><option value="☀️">☀️</option><option value="🌤">🌤</option><option value="⛅" selected="">⛅</option><option value="☁">☁</option><option value="🌦">🌦</option><option value="🌧">🌧</option><option value="⛈">⛈</option><option value="❄️">❄️</option><option value="🌫">🌫</option></select></td>
+      <td><input id="ph3" value="16°C" class="w52"></td>
+      <td><input id="pl3" value="8°C" class="w52"></td>
+      <td><input id="pd3" value="局部多云" class="wide"></td>
+    </tr><tr style="background:#fffbf0">
+      <td style="white-space:nowrap;font-size:10px;color:#aaa">4/7 周二 *</td>
+      <td><select id="pi4"><option value="☀️">☀️</option><option value="🌤">🌤</option><option value="⛅" selected="">⛅</option><option value="☁">☁</option><option value="🌦">🌦</option><option value="🌧">🌧</option><option value="⛈">⛈</option><option value="❄️">❄️</option><option value="🌫">🌫</option></select></td>
+      <td><input id="ph4" value="16°C" class="w52"></td>
+      <td><input id="pl4" value="8°C" class="w52"></td>
+      <td><input id="pd4" value="多云" class="wide"></td>
+    </tr><tr style="background:#fffbf0">
+      <td style="white-space:nowrap;font-size:10px;color:#aaa">4/8 周三 *</td>
+      <td><select id="pi5"><option value="☀️">☀️</option><option value="🌤">🌤</option><option value="⛅" selected="">⛅</option><option value="☁">☁</option><option value="🌦">🌦</option><option value="🌧">🌧</option><option value="⛈">⛈</option><option value="❄️">❄️</option><option value="🌫">🌫</option></select></td>
+      <td><input id="ph5" value="15°C" class="w52"></td>
+      <td><input id="pl5" value="8°C" class="w52"></td>
+      <td><input id="pd5" value="多云" class="wide"></td>
+    </tr><tr style="background:#fffbf0">
+      <td style="white-space:nowrap;font-size:10px;color:#aaa">4/9 周四 *</td>
+      <td><select id="pi6"><option value="☀️">☀️</option><option value="🌤" selected="">🌤</option><option value="⛅">⛅</option><option value="☁">☁</option><option value="🌦">🌦</option><option value="🌧">🌧</option><option value="⛈">⛈</option><option value="❄️">❄️</option><option value="🌫">🌫</option></select></td>
+      <td><input id="ph6" value="15°C" class="w52"></td>
+      <td><input id="pl6" value="8°C" class="w52"></td>
+      <td><input id="pd6" value="多云转晴" class="wide"></td>
+    </tr><tr style="background:#fffbf0">
+      <td style="white-space:nowrap;font-size:10px;color:#aaa">4/10 周五 *</td>
+      <td><select id="pi7"><option value="☀️">☀️</option><option value="🌤" selected="">🌤</option><option value="⛅">⛅</option><option value="☁">☁</option><option value="🌦">🌦</option><option value="🌧">🌧</option><option value="⛈">⛈</option><option value="❄️">❄️</option><option value="🌫">🌫</option></select></td>
+      <td><input id="ph7" value="17°C" class="w52"></td>
+      <td><input id="pl7" value="8°C" class="w52"></td>
+      <td><input id="pd7" value="多云转晴" class="wide"></td>
+    </tr><tr style="background:#fffbf0">
+      <td style="white-space:nowrap;font-size:10px;color:#aaa">4/11 周六 *</td>
+      <td><select id="pi8"><option value="☀️">☀️</option><option value="🌤">🌤</option><option value="⛅" selected="">⛅</option><option value="☁">☁</option><option value="🌦">🌦</option><option value="🌧">🌧</option><option value="⛈">⛈</option><option value="❄️">❄️</option><option value="🌫">🌫</option></select></td>
+      <td><input id="ph8" value="16°C" class="w52"></td>
+      <td><input id="pl8" value="9°C" class="w52"></td>
+      <td><input id="pd8" value="多云" class="wide"></td>
+    </tr></tbody>
       </table>
     </div>
     <div class="modal-btns">
       <button onclick="closeM('wx-modal')">取消</button>
       <button class="btn" onclick="parseWx()">解析</button>
-      <button class="primary" id="apply-btn" onclick="applyWx()" style="display:none">应用</button>
+      <button class="primary" id="apply-btn" onclick="applyWx()" style="display: inline-block;">应用</button>
     </div>
   </div>
 </div>
@@ -437,5 +767,6 @@ function applyWx(){
 buildDays();
 fetchWx();
 </script>
-</body>
-</html>
+
+
+</body></html>
