@@ -139,7 +139,7 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
       <button class="btn btn-dark" onclick="openPaste()">✦ 智能粘贴</button>
     </div>
   </div>
-  <div class="wx-status" id="wx-status">智能粘贴更新 · 4/1 15:40</div>
+  <div class="wx-status" id="wx-status">已更新 · 4/2 11:41 · wttr.in</div>
   <div class="wx-legend">
     <span class="conf ch">≤3天 高可信</span>
     <span class="conf cm">4—6天 中等</span>
@@ -148,17 +148,17 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
 </div>
 
 <div class="toolbar">
-  <button class="btn btn-edit" id="edit-btn" onclick="toggleEdit()">✏️ 编辑</button>
+  <button class="btn btn-edit" id="edit-btn" onclick="toggleEdit()" style="">✏️ 编辑</button>
   <button class="btn btn-dark" onclick="saveAll()">💾 保存 schedule.html</button>
   <button class="btn" onclick="resetAll()" style="color:#aaa">↺ 重置</button>
-  <span class="save-ts" id="save-ts">已保存 4/1 15:40</span>
+  <span class="save-ts" id="save-ts">已保存 4/2 15:51</span>
 </div>
 
-<div id="days"><div class="day d0">
+<div id="days" class=""><div class="day d0">
       <div class="day-hdr" onclick="tog(0)">
         <div class="day-date-col"><div class="day-num">4/3</div><div class="day-dow">周五</div><div class="day-label">热身日</div></div>
         <div class="day-info"><div class="day-theme">伦敦半日行</div><div class="day-theme-en">A Morning in London</div></div>
-        <div class="day-wx" id="wxc0"><div class="day-wx-icon">🌧</div><div class="day-wx-temp">13°C / 9°C</div><div class="day-wx-desc">🌧 多云有雨13°C9°C高</div><div class="conf ch">高可信</div></div>
+        <div class="day-wx" id="wxc0"><div class="day-wx-icon">🌧</div><div class="day-wx-temp">16°C / 7°C</div><div class="day-wx-desc">Patchy rain nearby</div><div class="conf ch">高可信</div></div>
       </div>
       <div class="day-body" id="body0"><div class="row" data-ri="0">
         <div class="row-time">上午</div>
@@ -193,7 +193,7 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
       <div class="day-hdr" onclick="tog(1)">
         <div class="day-date-col"><div class="day-num">4/4</div><div class="day-dow">周六</div><div class="day-label">欢迎会</div></div>
         <div class="day-info"><div class="day-theme">欢迎会</div><div class="day-theme-en">Welcome Gathering</div></div>
-        <div class="day-wx" id="wxc1"><div class="day-wx-icon">🌦</div><div class="day-wx-temp">14°C / 10°C</div><div class="day-wx-desc">多云有毛毛雨</div><div class="conf ch">高可信</div></div>
+        <div class="day-wx" id="wxc1"><div class="day-wx-icon">🌤</div><div class="day-wx-temp">14°C / 8°C</div><div class="day-wx-desc">多云转晴</div><div class="conf ch">高可信</div></div>
       </div>
       <div class="day-body" id="body1"><div class="row" data-ri="2">
         <div class="row-time">上午</div>
@@ -228,7 +228,7 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
       <div class="day-hdr" onclick="tog(2)">
         <div class="day-date-col"><div class="day-num">4/5</div><div class="day-dow">周日</div><div class="day-label">我是谁</div></div>
         <div class="day-info"><div class="day-theme">咖啡艺</div><div class="day-theme-en">The Art of Coffee</div></div>
-        <div class="day-wx" id="wxc2"><div class="day-wx-icon">🌧</div><div class="day-wx-temp">13°C / 9°C</div><div class="day-wx-desc">有雨</div><div class="conf cm">中等</div></div>
+        <div class="day-wx" id="wxc2"><div class="day-wx-icon">🌤</div><div class="day-wx-temp">13°C / 6°C</div><div class="day-wx-desc">多云转晴</div><div class="conf ch">高可信</div></div>
       </div>
       <div class="day-body" id="body2"><div class="row" data-ri="4">
         <div class="row-time">上午</div>
@@ -319,7 +319,7 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
       <div class="day-hdr" onclick="tog(5)">
         <div class="day-date-col"><div class="day-num">4/8</div><div class="day-dow">周三</div><div class="day-label">我想去哪里</div></div>
         <div class="day-info"><div class="day-theme">烘焙艺</div><div class="day-theme-en">The Art of Baking</div></div>
-        <div class="day-wx" id="wxc5"><div class="day-wx-icon">⛅</div><div class="day-wx-temp">15°C / 8°C</div><div class="day-wx-desc">多云</div><div class="conf cl">仅参考</div></div>
+        <div class="day-wx" id="wxc5"><div class="day-wx-icon">⛅</div><div class="day-wx-temp">15°C / 8°C</div><div class="day-wx-desc">多云</div><div class="conf cm">中等</div></div>
       </div>
       <div class="day-body" id="body5"><div class="row" data-ri="9">
         <div class="row-time">上午</div>
@@ -528,9 +528,9 @@ const DAYS=[
 
 const DEFAULT_ROWS=[
   {di:0,time:"上午",act:"Kew Gardens 皇家植物园",        type:"t-outing",  host:"Wendy",  assist:"Levi",           note:"参与：ALL；午餐：Sagar"},
-  {di:0,time:"下午",act:"公园行禅 / 单独互动",             type:"t-outing",  host:"",       assist:"",               note:"晚餐：303；备餐：Eloise"},
+  {di:0,time:"下午",act:"羽毛球",                         type:"t-outing",  host:"Michael",assist:"",               note:"参与：Angel, Kelly；晚餐：Mildreds Victoria"},
   {di:1,time:"上午",act:"「我从哪里来」破冰研讨",           type:"t-salon",   host:"Wendy",  assist:"Michael",        note:"参与：ALL；午餐：303；备餐：Eloise, Levi"},
-  {di:1,time:"下午",act:"羽毛球",                         type:"t-outing",  host:"Michael",assist:"",               note:"参与：Angel, Kelly；晚餐：Mildreds Victoria"},
+  {di:1,time:"下午",act:"公园行禅 / 单独互动",             type:"t-outing",  host:"",       assist:"",               note:"晚餐：303；备餐：Eloise"},
   {di:2,time:"上午",act:"「我是谁」主题研讨",               type:"t-salon",   host:"Wendy",  assist:"Levi",           note:"参与：Kelly, Angel, Michael；午餐：303；备餐：Eloise, 唐文英姐"},
   {di:2,time:"下午",act:"咖啡沙龙",                       type:"t-practice",host:"Michael",assist:"Kelly",           note:"参与：Wendy, Eloise；晚餐：Tendril"},
   {di:3,time:"上午",act:"大英博物馆",                      type:"t-outing",  host:"Wendy",  assist:"Michael",        note:"午餐：Tofu Vegan；参与：Levi"},
