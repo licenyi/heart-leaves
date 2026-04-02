@@ -127,7 +127,7 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
   </div>
 </div>
 
-<div class="edit-banner" id="edit-banner">
+<div class="edit-banner on" id="edit-banner">
   ✏️ 编辑模式已开启 — 点击活动名称、岗位、备注可直接修改，类型标签变为下拉选单
 </div>
 
@@ -139,7 +139,7 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
       <button class="btn btn-dark" onclick="openPaste()">✦ 智能粘贴</button>
     </div>
   </div>
-  <div class="wx-status" id="wx-status">已更新 · 4/2 11:41 · wttr.in</div>
+  <div class="wx-status" id="wx-status">已更新 · 4/2 22:28 · wttr.in</div>
   <div class="wx-legend">
     <span class="conf ch">≤3天 高可信</span>
     <span class="conf cm">4—6天 中等</span>
@@ -148,45 +148,45 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
 </div>
 
 <div class="toolbar">
-  <button class="btn btn-edit" id="edit-btn" onclick="toggleEdit()" style="">✏️ 编辑</button>
+  <button class="btn btn-edit" id="edit-btn" onclick="toggleEdit()" style="background: rgb(15, 110, 86); border-color: rgb(15, 110, 86);">✓ 完成编辑</button>
   <button class="btn btn-dark" onclick="saveAll()">💾 保存 schedule.html</button>
   <button class="btn" onclick="resetAll()" style="color:#aaa">↺ 重置</button>
-  <span class="save-ts" id="save-ts">已保存 4/2 15:51</span>
+  <span class="save-ts" id="save-ts">已保存 4/2 22:29</span>
 </div>
 
-<div id="days" class=""><div class="day d0">
+<div id="days" class="edit-on"><div class="day d0">
       <div class="day-hdr" onclick="tog(0)">
         <div class="day-date-col"><div class="day-num">4/3</div><div class="day-dow">周五</div><div class="day-label">热身日</div></div>
         <div class="day-info"><div class="day-theme">伦敦半日行</div><div class="day-theme-en">A Morning in London</div></div>
-        <div class="day-wx" id="wxc0"><div class="day-wx-icon">🌧</div><div class="day-wx-temp">16°C / 7°C</div><div class="day-wx-desc">Patchy rain nearby</div><div class="conf ch">高可信</div></div>
+        <div class="day-wx" id="wxc0"><div class="day-wx-icon">🌧</div><div class="day-wx-temp">16°C / 8°C</div><div class="day-wx-desc">Patchy rain nearby</div><div class="conf ch">高可信</div></div>
       </div>
       <div class="day-body" id="body0"><div class="row" data-ri="0">
         <div class="row-time">上午</div>
         <div class="row-content">
-          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">Kew Gardens 皇家植物园</div>
+          <div class="e-act" contenteditable="true" data-ph="活动内容" data-field="act">Kew Gardens 皇家植物园</div>
           <div class="type-wrap">
             <span class="row-type t-outing">观光</span>
             <select class="type-sel" onchange="typeChange(this,0)"><option value="t-outing" selected="">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
           </div>
           <div class="row-roles">
-            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Wendy</span>
-            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Levi</span>
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="true" data-ph="姓名" data-field="host">Wendy</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="true" data-ph="姓名" data-field="assist">Levi</span>
           </div>
-          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：ALL；午餐：Sagar</span></div>
+          <div class="row-note"><span class="e-note" contenteditable="true" data-ph="备注" data-field="note">参与：ALL；午餐：Namaste</span></div>
         </div>
       </div><div class="row" data-ri="1">
         <div class="row-time">下午</div>
         <div class="row-content">
-          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">公园行禅 / 单独互动</div>
+          <div class="e-act" contenteditable="true" data-ph="活动内容" data-field="act">羽毛球</div>
           <div class="type-wrap">
             <span class="row-type t-outing">观光</span>
             <select class="type-sel" onchange="typeChange(this,1)"><option value="t-outing" selected="">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
           </div>
           <div class="row-roles">
-            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host"></span>
-            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist"></span>
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="true" data-ph="姓名" data-field="host">Michael</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="true" data-ph="姓名" data-field="assist"></span>
           </div>
-          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">晚餐：303；备餐：Eloise</span></div>
+          <div class="row-note"><span class="e-note" contenteditable="true" data-ph="备注" data-field="note">参与：Angel, Kelly；晚餐：303</span></div>
         </div>
       </div></div>
     </div><div class="day d1">
@@ -198,30 +198,30 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
       <div class="day-body" id="body1"><div class="row" data-ri="2">
         <div class="row-time">上午</div>
         <div class="row-content">
-          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">「我从哪里来」破冰研讨</div>
+          <div class="e-act" contenteditable="true" data-ph="活动内容" data-field="act">单独互动/素生活</div>
           <div class="type-wrap">
-            <span class="row-type t-salon">主题研讨</span>
-            <select class="type-sel" onchange="typeChange(this,2)"><option value="t-outing">观光</option><option value="t-salon" selected="">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+            <span class="row-type t-practice">实修沙龙</span>
+            <select class="type-sel" onchange="typeChange(this,2)"><option value="t-outing">观光</option><option value="t-salon">主题研讨</option><option value="t-practice" selected="">实修沙龙</option><option value="t-visit">高校参访</option></select>
           </div>
           <div class="row-roles">
-            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Wendy</span>
-            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Michael</span>
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="true" data-ph="姓名" data-field="host">Angel</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="true" data-ph="姓名" data-field="assist">l</span>
           </div>
-          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：ALL；午餐：303；备餐：Eloise, Levi</span></div>
+          <div class="row-note"><span class="e-note" contenteditable="true" data-ph="备注" data-field="note">参与：ALL；午餐：303；备餐：Eloise, Levi</span></div>
         </div>
       </div><div class="row" data-ri="3">
         <div class="row-time">下午</div>
         <div class="row-content">
-          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">羽毛球</div>
+          <div class="e-act" contenteditable="true" data-ph="活动内容" data-field="act">「我从哪里来」破冰研讨</div>
           <div class="type-wrap">
-            <span class="row-type t-outing">观光</span>
-            <select class="type-sel" onchange="typeChange(this,3)"><option value="t-outing" selected="">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
+            <span class="row-type t-salon">主题研讨</span>
+            <select class="type-sel" onchange="typeChange(this,3)"><option value="t-outing">观光</option><option value="t-salon" selected="">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
           </div>
           <div class="row-roles">
-            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Michael</span>
-            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist"></span>
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="true" data-ph="姓名" data-field="host">Wendy</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="true" data-ph="姓名" data-field="assist">Michael</span>
           </div>
-          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：Angel, Kelly；晚餐：Mildreds Victoria</span></div>
+          <div class="row-note"><span class="e-note" contenteditable="true" data-ph="备注" data-field="note">晚餐：Mildreds Victoria</span></div>
         </div>
       </div></div>
     </div><div class="day d2">
@@ -233,30 +233,30 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
       <div class="day-body" id="body2"><div class="row" data-ri="4">
         <div class="row-time">上午</div>
         <div class="row-content">
-          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">「我是谁」主题研讨</div>
+          <div class="e-act" contenteditable="true" data-ph="活动内容" data-field="act">咖啡沙龙</div>
           <div class="type-wrap">
             <span class="row-type t-salon">主题研讨</span>
             <select class="type-sel" onchange="typeChange(this,4)"><option value="t-outing">观光</option><option value="t-salon" selected="">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
           </div>
           <div class="row-roles">
-            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Wendy</span>
-            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Levi</span>
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="true" data-ph="姓名" data-field="host">Michael</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="true" data-ph="姓名" data-field="assist">Kelly</span>
           </div>
-          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：Kelly, Angel, Michael；午餐：303；备餐：Eloise, 唐文英姐</span></div>
+          <div class="row-note"><span class="e-note" contenteditable="true" data-ph="备注" data-field="note">参与：Wendy, Eloise；午餐：Tendril</span></div>
         </div>
       </div><div class="row" data-ri="5">
         <div class="row-time">下午</div>
         <div class="row-content">
-          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">咖啡沙龙</div>
+          <div class="e-act" contenteditable="true" data-ph="活动内容" data-field="act">「我是谁」主题研讨</div>
           <div class="type-wrap">
             <span class="row-type t-practice">实修沙龙</span>
             <select class="type-sel" onchange="typeChange(this,5)"><option value="t-outing">观光</option><option value="t-salon">主题研讨</option><option value="t-practice" selected="">实修沙龙</option><option value="t-visit">高校参访</option></select>
           </div>
           <div class="row-roles">
-            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Michael</span>
-            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Kelly</span>
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="true" data-ph="姓名" data-field="host">Wendy</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="true" data-ph="姓名" data-field="assist">Levi</span>
           </div>
-          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：Wendy, Eloise；晚餐：Tendril</span></div>
+          <div class="row-note"><span class="e-note" contenteditable="true" data-ph="备注" data-field="note">参与：Kelly, Angel, Michael；晚餐：303；备餐：Eloise, 唐文英姐</span></div>
         </div>
       </div></div>
     </div><div class="day d3">
@@ -268,30 +268,30 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
       <div class="day-body" id="body3"><div class="row" data-ri="6">
         <div class="row-time">上午</div>
         <div class="row-content">
-          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">大英博物馆</div>
+          <div class="e-act" contenteditable="true" data-ph="活动内容" data-field="act">大英博物馆</div>
           <div class="type-wrap">
             <span class="row-type t-outing">观光</span>
             <select class="type-sel" onchange="typeChange(this,6)"><option value="t-outing" selected="">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
           </div>
           <div class="row-roles">
-            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Wendy</span>
-            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Michael</span>
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="true" data-ph="姓名" data-field="host">Wendy</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="true" data-ph="姓名" data-field="assist">Michael</span>
           </div>
-          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">午餐：Tofu Vegan；参与：Levi</span></div>
+          <div class="row-note"><span class="e-note" contenteditable="true" data-ph="备注" data-field="note">午餐：Tofu Vegan；参与：Levi</span></div>
         </div>
       </div><div class="row" data-ri="7">
         <div class="row-time">下午</div>
         <div class="row-content">
-          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">厨艺沙龙</div>
+          <div class="e-act" contenteditable="true" data-ph="活动内容" data-field="act">厨艺沙龙</div>
           <div class="type-wrap">
             <span class="row-type t-practice">实修沙龙</span>
             <select class="type-sel" onchange="typeChange(this,7)"><option value="t-outing">观光</option><option value="t-salon">主题研讨</option><option value="t-practice" selected="">实修沙龙</option><option value="t-visit">高校参访</option></select>
           </div>
           <div class="row-roles">
-            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Eloise</span>
-            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Kelly, Levi</span>
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="true" data-ph="姓名" data-field="host">Eloise</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="true" data-ph="姓名" data-field="assist">Kelly, Levi</span>
           </div>
-          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：Angel；晚餐：303</span></div>
+          <div class="row-note"><span class="e-note" contenteditable="true" data-ph="备注" data-field="note">参与：Angel；晚餐：303</span></div>
         </div>
       </div></div>
     </div><div class="day d4">
@@ -303,16 +303,16 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
       <div class="day-body" id="body4"><div class="row" data-ri="8">
         <div class="row-time">全天</div>
         <div class="row-content">
-          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">牛津一日游</div>
+          <div class="e-act" contenteditable="true" data-ph="活动内容" data-field="act">牛津一日游</div>
           <div class="type-wrap">
             <span class="row-type t-visit">高校参访</span>
             <select class="type-sel" onchange="typeChange(this,8)"><option value="t-outing">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit" selected="">高校参访</option></select>
           </div>
           <div class="row-roles">
-            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Angel</span>
-            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Eloise, Michael</span>
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="true" data-ph="姓名" data-field="host">Angel</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="true" data-ph="姓名" data-field="assist">Eloise, Michael</span>
           </div>
-          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">晚餐：303；备餐：Kelly, Wendy</span></div>
+          <div class="row-note"><span class="e-note" contenteditable="true" data-ph="备注" data-field="note">晚餐：303；备餐：Kelly, Wendy, Levi</span></div>
         </div>
       </div></div>
     </div><div class="day d5">
@@ -324,30 +324,30 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
       <div class="day-body" id="body5"><div class="row" data-ri="9">
         <div class="row-time">上午</div>
         <div class="row-content">
-          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">「我想去哪里」主题研讨</div>
+          <div class="e-act" contenteditable="true" data-ph="活动内容" data-field="act">「我想去哪里」主题研讨</div>
           <div class="type-wrap">
             <span class="row-type t-salon">主题研讨</span>
             <select class="type-sel" onchange="typeChange(this,9)"><option value="t-outing">观光</option><option value="t-salon" selected="">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
           </div>
           <div class="row-roles">
-            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Wendy</span>
-            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Michael</span>
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="true" data-ph="姓名" data-field="host">Wendy</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="true" data-ph="姓名" data-field="assist">Michael</span>
           </div>
-          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：Angel, Kelly, Levi；午餐：303；备餐：Eloise, 唐文英</span></div>
+          <div class="row-note"><span class="e-note" contenteditable="true" data-ph="备注" data-field="note">参与：Angel, Kelly, Levi；午餐：303；备餐：Eloise, 唐文英</span></div>
         </div>
       </div><div class="row" data-ri="10">
         <div class="row-time">下午</div>
         <div class="row-content">
-          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">烘焙沙龙</div>
+          <div class="e-act" contenteditable="true" data-ph="活动内容" data-field="act">烘焙沙龙</div>
           <div class="type-wrap">
             <span class="row-type t-practice">实修沙龙</span>
             <select class="type-sel" onchange="typeChange(this,10)"><option value="t-outing">观光</option><option value="t-salon">主题研讨</option><option value="t-practice" selected="">实修沙龙</option><option value="t-visit">高校参访</option></select>
           </div>
           <div class="row-roles">
-            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Kelly</span>
-            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Eloise, Wendy</span>
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="true" data-ph="姓名" data-field="host">Kelly</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="true" data-ph="姓名" data-field="assist">Eloise, Wendy</span>
           </div>
-          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：Levi；晚餐：Mali Thai</span></div>
+          <div class="row-note"><span class="e-note" contenteditable="true" data-ph="备注" data-field="note">参与：Levi；晚餐：Mali Thai</span></div>
         </div>
       </div></div>
     </div><div class="day d6">
@@ -359,16 +359,16 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
       <div class="day-body" id="body6"><div class="row" data-ri="11">
         <div class="row-time">全天</div>
         <div class="row-content">
-          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">剑桥一日游</div>
+          <div class="e-act" contenteditable="true" data-ph="活动内容" data-field="act">剑桥一日游</div>
           <div class="type-wrap">
             <span class="row-type t-visit">高校参访</span>
             <select class="type-sel" onchange="typeChange(this,11)"><option value="t-outing">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit" selected="">高校参访</option></select>
           </div>
           <div class="row-roles">
-            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Eloise</span>
-            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Angel, Michael</span>
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="true" data-ph="姓名" data-field="host">Eloise</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="true" data-ph="姓名" data-field="assist">Angel, Michael</span>
           </div>
-          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">晚餐：303；备餐：Kelly, Wendy</span></div>
+          <div class="row-note"><span class="e-note" contenteditable="true" data-ph="备注" data-field="note">晚餐：303；备餐：Kelly, Wendy, Levi</span></div>
         </div>
       </div></div>
     </div><div class="day d7">
@@ -380,30 +380,30 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
       <div class="day-body" id="body7"><div class="row" data-ri="12">
         <div class="row-time">上午</div>
         <div class="row-content">
-          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">总结研讨：三个问题的贯通与收束</div>
+          <div class="e-act" contenteditable="true" data-ph="活动内容" data-field="act">总结研讨：三个问题的贯通与收束</div>
           <div class="type-wrap">
             <span class="row-type t-salon">主题研讨</span>
             <select class="type-sel" onchange="typeChange(this,12)"><option value="t-outing">观光</option><option value="t-salon" selected="">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
           </div>
           <div class="row-roles">
-            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Wendy</span>
-            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Michael</span>
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="true" data-ph="姓名" data-field="host">Wendy</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="true" data-ph="姓名" data-field="assist">Michael</span>
           </div>
-          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：全员；午餐：303；备餐：Eloise, Angel, Kelly</span></div>
+          <div class="row-note"><span class="e-note" contenteditable="true" data-ph="备注" data-field="note">参与：全员；午餐：303；备餐：Eloise, Angel, Kelly</span></div>
         </div>
       </div><div class="row" data-ri="13">
         <div class="row-time">下午</div>
         <div class="row-content">
-          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">National Gallery 国家美术馆</div>
+          <div class="e-act" contenteditable="true" data-ph="活动内容" data-field="act">National Gallery 国家美术馆</div>
           <div class="type-wrap">
             <span class="row-type t-outing">观光</span>
             <select class="type-sel" onchange="typeChange(this,13)"><option value="t-outing" selected="">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
           </div>
           <div class="row-roles">
-            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Eloise</span>
-            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Wendy</span>
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="true" data-ph="姓名" data-field="host">Eloise</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="true" data-ph="姓名" data-field="assist">Wendy</span>
           </div>
-          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：Angel, Kelly；晚餐：Omnom</span></div>
+          <div class="row-note"><span class="e-note" contenteditable="true" data-ph="备注" data-field="note">参与：Angel, Kelly；晚餐：Omnom</span></div>
         </div>
       </div></div>
     </div><div class="day d8">
@@ -415,16 +415,16 @@ textarea{width:100%;height:140px;font-size:12px;border:1px solid #ddd;border-rad
       <div class="day-body" id="body8"><div class="row" data-ri="14">
         <div class="row-time">全天</div>
         <div class="row-content">
-          <div class="e-act" contenteditable="false" data-ph="活动内容" data-field="act">泰晤士河 Greenwich 一日游</div>
+          <div class="e-act" contenteditable="true" data-ph="活动内容" data-field="act">泰晤士河 Greenwich 一日游</div>
           <div class="type-wrap">
             <span class="row-type t-outing">观光</span>
             <select class="type-sel" onchange="typeChange(this,14)"><option value="t-outing" selected="">观光</option><option value="t-salon">主题研讨</option><option value="t-practice">实修沙龙</option><option value="t-visit">高校参访</option></select>
           </div>
           <div class="row-roles">
-            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="false" data-ph="姓名" data-field="host">Angel</span>
-            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="false" data-ph="姓名" data-field="assist">Michael</span>
+            <span class="role-lbl">主持：</span><span class="e-host" contenteditable="true" data-ph="姓名" data-field="host">Angel</span>
+            <span class="role-lbl"> · 助理：</span><span class="e-assist" contenteditable="true" data-ph="姓名" data-field="assist">Michael</span>
           </div>
-          <div class="row-note"><span class="e-note" contenteditable="false" data-ph="备注" data-field="note">参与：ALL；早午餐：303；备餐：Eloise, Wendy；晚餐：Mallow / Plants of Roselyn</span></div>
+          <div class="row-note"><span class="e-note" contenteditable="true" data-ph="备注" data-field="note">参与：ALL；早午餐：303；备餐：Eloise, Wendy；晚餐：Mallow / Plants of Roselyn</span></div>
         </div>
       </div></div>
     </div></div>
